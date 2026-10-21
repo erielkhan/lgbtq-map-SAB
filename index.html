@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Ajusts d'estil personalitzats */
         #map {
             height: 100vh;
             width: 100%;
@@ -27,7 +26,6 @@
             padding: 4px;
             box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
         }
-        /* Amagar la barra de desplaçament però permetre scroll */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -41,13 +39,9 @@
 
     <div class="flex flex-col md:flex-row h-screen w-screen relative">
         
-        <!-- Imatge superior esquerra (El doble de gran: 96x96px) -->
-        <div class="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md p-2 rounded-2xl shadow-xl border border-gray-200/80 flex items-center space-x-3 transition-transform hover:scale-105">
-            <img src="image.jpg" alt="Logotip" class="w-24 h-24 object-cover rounded-xl shadow-inner border border-gray-100" onerror="this.onerror=null; this.src='https://via.placeholder.com/96?text=Imatge';">
-            <div class="pr-2 hidden sm:block">
-                <h1 class="font-bold text-gray-800 text-lg leading-tight">Directori Local</h1>
-                <p class="text-xs text-gray-500 font-medium">Mapa d'Elements</p>
-            </div>
+        <!-- Imatge superior esquerra (+30% de mida: 125x125px) -->
+        <div class="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md p-2 rounded-2xl shadow-xl border border-gray-200/80 flex items-center justify-center transition-transform hover:scale-105">
+            <img src="image.jpg" alt="Logotip" class="w-[125px] h-[125px] object-cover rounded-xl shadow-inner border border-gray-100" onerror="this.onerror=null; this.src='https://via.placeholder.com/125?text=Imatge';">
         </div>
 
         <!-- Contenidor del Mapa -->
@@ -55,7 +49,7 @@
             <div id="map"></div>
             
             <!-- Barra de Filtres per Categoria (Superposada al mapa) -->
-            <div class="absolute top-4 left-36 sm:left-64 right-16 z-[999] flex overflow-x-auto space-x-2 p-1.5 no-scrollbar bg-white/80 backdrop-blur-md rounded-xl shadow-md border border-gray-200/60">
+            <div class="absolute top-4 left-40 sm:left-44 right-16 z-[999] flex overflow-x-auto space-x-2 p-1.5 no-scrollbar bg-white/80 backdrop-blur-md rounded-xl shadow-md border border-gray-200/60">
                 <button onclick="filterCategory('all')" class="cat-btn active bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap transition shadow-sm hover:bg-indigo-700">Tots</button>
                 <button onclick="filterCategory('cafeteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">☕ Cafeteries</button>
                 <button onclick="filterCategory('restaurant')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍽️ Restaurants</button>
@@ -71,7 +65,7 @@
             </div>
         </div>
 
-        <!-- Panell Lateral Dret (Sincronitzat amb la vista de Zoom del Mapa) -->
+        <!-- Panell Lateral Dret -->
         <div class="w-full md:w-96 lg:w-[420px] bg-white h-1/2 md:h-full z-10 shadow-2xl border-l border-gray-200 flex flex-col">
             <!-- Capçalera del Panell -->
             <div class="p-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
@@ -82,7 +76,7 @@
                 <span id="item-count" class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-full">0</span>
             </div>
 
-            <!-- Llista d'Elements visibles -->
+            <!-- Llista d'Elements -->
             <div id="elements-list" class="flex-1 overflow-y-auto p-4 space-y-3 divide-y divide-gray-100">
                 <div class="text-center py-8 text-gray-400">
                     <i class="fa-solid fa-map-location-dot text-4xl mb-2 text-gray-300"></i>
@@ -94,36 +88,30 @@
     </div>
 
     <script>
-        // --- 1. CONFIGURACIÓ DE MAPES EN VERSIONS CLARES DE GRISOS (SENSE API KEY) ---
-        
-        // CartoDB Positron: Versió clara en grises nítida d'OpenStreetMap (Capclau/API no requerida)
+        // --- MAPES EN VERSIONS CLARES DE GRISOS (SENSE API KEY) ---
         const cartoPositron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
             subdomains: 'abcd',
             maxZoom: 20
         });
 
-        // OpenStreetMap Estàndard (Lliure)
         const osmStandard = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
 
-        // CartoDB Dark Matter (Gris fosca)
         const cartoDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
             subdomains: 'abcd',
             maxZoom: 20
         });
 
-        // Inicialització del mapa
         const map = L.map('map', {
-            center: [41.38879, 2.15899], // Coordenades per defecte (Barcelona)
+            center: [41.38879, 2.15899],
             zoom: 14,
-            layers: [cartoPositron] // Versió clara de grisos per defecte
+            layers: [cartoPositron]
         });
 
-        // Control de Capes
         const baseMaps = {
             "Gris clar (Positron)": cartoPositron,
             "OSM Estàndard": osmStandard,
@@ -131,17 +119,15 @@
         };
         L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 
-        // Variables globals
         let allMarkers = [];
         let geojsonLayer = null;
         let activeCategory = 'all';
 
-        // --- 2. TRADUCCIÓ D'HORARIS OSM AL CATALÀ ---
+        // --- TRADUCCIÓ D'HORARIS AL CATALÀ ---
         function translateOpeningHours(oh) {
             if (!oh) return null;
             let translated = oh;
 
-            // Substitució de dies de la setmana
             const daysMap = {
                 'Mo': 'Dl', 'Tu': 'Dt', 'We': 'Dc', 'Th': 'Dj', 'Fr': 'Dv', 'Sa': 'Ds', 'Su': 'Dg',
                 'Mo-Fr': 'Dl-Dv', 'Mo-Sa': 'Dl-Ds', 'Sa-Su': 'Ds-Dg', 'PH': 'Festius', 'Off': 'Tancat'
@@ -157,7 +143,7 @@
             return translated;
         }
 
-        // --- 3. CATEGORITZACIÓ D'ELEMENTS OSM ---
+        // --- CATEGORITZACIÓ ---
         function getCategoryDetails(props) {
             const amenity = props.amenity || '';
             const shop = props.shop || '';
@@ -191,7 +177,7 @@
             return { key: 'altres', label: 'Altres', icon: 'fa-location-dot', color: '#6b7280' };
         }
 
-        // --- 4. ICONES PERSONALITZADES A LEAFLET ---
+        // --- ICONES ---
         function createCustomIcon(cat) {
             return L.divIcon({
                 className: 'custom-leaflet-icon',
@@ -206,15 +192,13 @@
             });
         }
 
-        // --- 5. RENDERITZACIÓ DE LA FINESTRA EMERGENT (POPUP) ---
+        // --- POPUPS ---
         function generatePopupHTML(props, cat) {
             const name = props.name || 'Sense nom';
             const hours = translateOpeningHours(props.opening_hours);
             const website = props.website || props['contact:website'];
             const phone = props.phone || props['contact:phone'];
             const instagram = props.instagram || props['contact:instagram'];
-            
-            // Construcció d'adreça
             const street = props['addr:street'] || '';
             const housenumber = props['addr:housenumber'] || '';
             const address = (street || housenumber) ? `${street} ${housenumber}`.trim() : null;
@@ -263,17 +247,15 @@
             `;
         }
 
-        // --- 6. CÀRREGA DE DADES (data.geojson O PROVA LOCALS) ---
+        // --- CÀRREGA DE DADES ---
         async function loadGeoJSONData() {
             try {
-                // Tenta carregar el fitxer data.geojson del mateix servidor/repositori
                 const response = await fetch('data.geojson');
                 if (!response.ok) throw new Error('Fitxer local data.geojson no trobat.');
                 const data = await response.json();
                 processGeoJSON(data);
             } catch (err) {
                 console.warn("Carregant dades de mostra per defecte...", err);
-                // Dades de demostració si el fitxer data.geojson no està present inicialment
                 const sampleData = {
                     "type": "FeatureCollection",
                     "features": [
@@ -286,16 +268,6 @@
                             "type": "Feature",
                             "properties": { "name": "Farmàcia Central", "amenity": "pharmacy", "opening_hours": "Mo-Su 08:30-21:30", "phone": "+34 939 876 543", "addr:street": "Gran Via", "addr:housenumber": "45" },
                             "geometry": { "type": "Point", "coordinates": [2.16200, 41.38950] }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": { "name": "Forn i Pastisseria Soler", "shop": "bakery", "opening_hours": "Mo-Sa 07:00-14:00", "addr:street": "Carrer Nou", "addr:housenumber": "3" },
-                            "geometry": { "type": "Point", "coordinates": [2.15500, 41.38700] }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": { "name": "Ajuntament / Oficina d'Atenció", "amenity": "townhall", "opening_hours": "Mo-Fr 09:00-14:00", "addr:street": "Plaça de la Vila", "addr:housenumber": "1" },
-                            "geometry": { "type": "Point", "coordinates": [2.15750, 41.39050] }
                         }
                     ]
                 };
@@ -303,7 +275,6 @@
             }
         }
 
-        // --- 7. TRACTAMENT I PROCESSAMENT DE LES CAPES ---
         function processGeoJSON(data) {
             allMarkers = [];
 
@@ -314,7 +285,6 @@
                     
                     marker.bindPopup(generatePopupHTML(feature.properties, cat), { className: 'custom-popup' });
                     
-                    // Emmagatzematge de referències per als filtres
                     allMarkers.push({
                         marker: marker,
                         properties: feature.properties,
@@ -327,17 +297,15 @@
                 }
             }).addTo(map);
 
-            // Ajustar el zoom del mapa automàticament als elements si n'hi ha
             if (allMarkers.length > 0) {
                 const group = L.featureGroup(allMarkers.map(m => m.marker));
                 map.fitBounds(group.getBounds().pad(0.1));
             }
 
-            // Actualització inicial de la llista lateral
             updateSidebarList();
         }
 
-        // --- 8. FILTRAT D'ELEMENTS A LA COLUMNA DRETA SEGONS EL ZOOM I BBOX VISIBLE ---
+        // --- FILTRAT PER ZOOM I BBOX ---
         function updateSidebarList() {
             const bounds = map.getBounds();
             const listContainer = document.getElementById('elements-list');
@@ -345,12 +313,10 @@
 
             listContainer.innerHTML = '';
 
-            // Filtrar elements que estan dins la pantalla visible I pertanyen a la categoria seleccionada
             const visibleItems = allMarkers.filter(item => {
                 const isInBounds = bounds.contains(item.latlng);
                 const isCatMatch = (activeCategory === 'all' || item.category === activeCategory);
                 
-                // Mostrar / Amagar el marcador del mapa
                 if (isInBounds && isCatMatch) {
                     if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
                 } else {
@@ -373,7 +339,6 @@
                 return;
             }
 
-            // Renderitzar cada element a la llista lateral
             visibleItems.forEach(item => {
                 const props = item.properties;
                 const cat = item.catInfo;
@@ -415,7 +380,6 @@
                     </div>
                 `;
 
-                // En fer clic a la targeta, fer zoom i obrir la finestra del marcador
                 card.onclick = () => {
                     map.panTo(item.latlng);
                     item.marker.openPopup();
@@ -425,11 +389,10 @@
             });
         }
 
-        // --- 9. FILTRE DE CATEGORIES ---
+        // --- FILTRE CATEGORIES ---
         function filterCategory(catKey) {
             activeCategory = catKey;
 
-            // Actualització visual dels botons de filtre
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.classList.remove('active', 'bg-indigo-600', 'text-white');
                 btn.classList.add('bg-white', 'text-gray-700');
@@ -441,11 +404,9 @@
             updateSidebarList();
         }
 
-        // --- 10. ESDEVENIMENTS DEL MAPA PER ACTUALITZAR A TEMPS REAL ---
         map.on('moveend', updateSidebarList);
         map.on('zoomend', updateSidebarList);
 
-        // Inicialització en carregar la pàgina
         loadGeoJSONData();
     </script>
 </body>
