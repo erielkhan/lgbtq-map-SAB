@@ -59,4 +59,394 @@
                 <button onclick="filterCategory('all')" class="cat-btn active bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap transition shadow-sm hover:bg-indigo-700">Tots</button>
                 <button onclick="filterCategory('cafeteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">☕ Cafeteries</button>
                 <button onclick="filterCategory('restaurant')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍽️ Restaurants</button>
-                <button onclick="filterCategory('
+                <button onclick="filterCategory('bar')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍺 Bars</button>
+                <button onclick="filterCategory('panaderia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🥐 Forns / Panaderies</button>
+                <button onclick="filterCategory('farmacia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💊 Farmàcies</button>
+                <button onclick="filterCategory('clinica')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🏥 Clíniques / Salut</button>
+                <button onclick="filterCategory('perruqueria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">✂️ Estètica / Perruqueries</button>
+                <button onclick="filterCategory('ropa')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">👔 Botigues de Roba</button>
+                <button onclick="filterCategory('supermercat')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛒 Supermercats</button>
+                <button onclick="filterCategory('edifici_public')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🏛️ Edificis Públics</button>
+                <button onclick="filterCategory('ferreteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🔧 Ferreteries</button>
+            </div>
+        </div>
+
+        <!-- Panell Lateral Dret (Sincronitzat amb la vista de Zoom del Mapa) -->
+        <div class="w-full md:w-96 lg:w-[420px] bg-white h-1/2 md:h-full z-10 shadow-2xl border-l border-gray-200 flex flex-col">
+            <!-- Capçalera del Panell -->
+            <div class="p-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-gray-800">Elements en aquesta àrea</h2>
+                    <p class="text-xs text-gray-500">Mogui o faci zoom al mapa per actualitzar la llista</p>
+                </div>
+                <span id="item-count" class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-full">0</span>
+            </div>
+
+            <!-- Llista d'Elements visibles -->
+            <div id="elements-list" class="flex-1 overflow-y-auto p-4 space-y-3 divide-y divide-gray-100">
+                <div class="text-center py-8 text-gray-400">
+                    <i class="fa-solid fa-map-location-dot text-4xl mb-2 text-gray-300"></i>
+                    <p class="text-sm">Carregant dades del mapa...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- 1. CONFIGURACIÓ DE MAPES EN VERSIONS CLARES DE GRISOS (SENSE API KEY) ---
+        
+        // CartoDB Positron: Versió clara en grises nítida d'OpenStreetMap (Capclau/API no requerida)
+        const cartoPositron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 20
+        });
+
+        // OpenStreetMap Estàndard (Lliure)
+        const osmStandard = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+        // CartoDB Dark Matter (Gris fosca)
+        const cartoDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 20
+        });
+
+        // Inicialització del mapa
+        const map = L.map('map', {
+            center: [41.38879, 2.15899], // Coordenades per defecte (Barcelona)
+            zoom: 14,
+            layers: [cartoPositron] // Versió clara de grisos per defecte
+        });
+
+        // Control de Capes
+        const baseMaps = {
+            "Gris clar (Positron)": cartoPositron,
+            "OSM Estàndard": osmStandard,
+            "Gris fosc (Dark)": cartoDark
+        };
+        L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
+
+        // Variables globals
+        let allMarkers = [];
+        let geojsonLayer = null;
+        let activeCategory = 'all';
+
+        // --- 2. TRADUCCIÓ D'HORARIS OSM AL CATALÀ ---
+        function translateOpeningHours(oh) {
+            if (!oh) return null;
+            let translated = oh;
+
+            // Substitució de dies de la setmana
+            const daysMap = {
+                'Mo': 'Dl', 'Tu': 'Dt', 'We': 'Dc', 'Th': 'Dj', 'Fr': 'Dv', 'Sa': 'Ds', 'Su': 'Dg',
+                'Mo-Fr': 'Dl-Dv', 'Mo-Sa': 'Dl-Ds', 'Sa-Su': 'Ds-Dg', 'PH': 'Festius', 'Off': 'Tancat'
+            };
+
+            for (const [key, val] of Object.entries(daysMap)) {
+                const reg = new RegExp('\\b' + key + '\\b', 'g');
+                translated = translated.replace(reg, val);
+            }
+
+            translated = translated.replace(/24\/7/g, 'Obert 24h');
+            translated = translated.replace(/off/gi, 'Tancat');
+            return translated;
+        }
+
+        // --- 3. CATEGORITZACIÓ D'ELEMENTS OSM ---
+        function getCategoryDetails(props) {
+            const amenity = props.amenity || '';
+            const shop = props.shop || '';
+            const building = props.building || '';
+            const office = props.office || '';
+
+            if (amenity === 'cafe') {
+                return { key: 'cafeteria', label: 'Cafeteria', icon: 'fa-mug-saucer', color: '#d97706' };
+            } else if (['restaurant', 'food_court'].includes(amenity)) {
+                return { key: 'restaurant', label: 'Restaurant', icon: 'fa-utensils', color: '#dc2626' };
+            } else if (['bar', 'pub', 'biergarten'].includes(amenity)) {
+                return { key: 'bar', label: 'Bar', icon: 'fa-beer-mug-empty', color: '#eab308' };
+            } else if (shop === 'bakery' || shop === 'pastry') {
+                return { key: 'panaderia', label: 'Forn / Panaderia', icon: 'fa-bread-slice', color: '#b45309' };
+            } else if (amenity === 'pharmacy') {
+                return { key: 'farmacia', label: 'Farmàcia', icon: 'fa-prescription-bottle-medical', color: '#16a34a' };
+            } else if (['clinic', 'hospital', 'doctors', 'dentist'].includes(amenity)) {
+                return { key: 'clinica', label: 'Clínica / Salut', icon: 'fa-briefcase-medical', color: '#2563eb' };
+            } else if (['hairdresser', 'beauty', 'cosmetics'].includes(shop)) {
+                return { key: 'perruqueria', label: 'Estètica / Perruqueria', icon: 'fa-scissors', color: '#ec4899' };
+            } else if (['clothes', 'fashion', 'boutique', 'shoes'].includes(shop)) {
+                return { key: 'ropa', label: 'Botiga de Roba', icon: 'fa-shirt', color: '#8b5cf6' };
+            } else if (['supermarket', 'convenience', 'grocery'].includes(shop)) {
+                return { key: 'supermercat', label: 'Supermercat', icon: 'fa-cart-shopping', color: '#0284c7' };
+            } else if (['townhall', 'public_building', 'community_centre', 'library'].includes(amenity) || building === 'public' || office) {
+                return { key: 'edifici_public', label: 'Edifici Públic', icon: 'fa-landmark', color: '#475569' };
+            } else if (['hardware', 'doityourself', 'trade'].includes(shop)) {
+                return { key: 'ferreteria', label: 'Ferreteria', icon: 'fa-wrench', color: '#ea580c' };
+            }
+
+            return { key: 'altres', label: 'Altres', icon: 'fa-location-dot', color: '#6b7280' };
+        }
+
+        // --- 4. ICONES PERSONALITZADES A LEAFLET ---
+        function createCustomIcon(cat) {
+            return L.divIcon({
+                className: 'custom-leaflet-icon',
+                html: `
+                    <div style="background-color: ${cat.color};" class="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white transition-transform hover:scale-110">
+                        <i class="fa-solid ${cat.icon} text-xs"></i>
+                    </div>
+                `,
+                iconSize: [32, 32],
+                iconAnchor: [16, 32],
+                popupAnchor: [0, -32]
+            });
+        }
+
+        // --- 5. RENDERITZACIÓ DE LA FINESTRA EMERGENT (POPUP) ---
+        function generatePopupHTML(props, cat) {
+            const name = props.name || 'Sense nom';
+            const hours = translateOpeningHours(props.opening_hours);
+            const website = props.website || props['contact:website'];
+            const phone = props.phone || props['contact:phone'];
+            const instagram = props.instagram || props['contact:instagram'];
+            
+            // Construcció d'adreça
+            const street = props['addr:street'] || '';
+            const housenumber = props['addr:housenumber'] || '';
+            const address = (street || housenumber) ? `${street} ${housenumber}`.trim() : null;
+
+            return `
+                <div class="p-2 max-w-xs font-sans">
+                    <div class="flex items-center space-x-2 mb-1">
+                        <span class="text-xs px-2 py-0.5 rounded-full text-white font-medium" style="background-color: ${cat.color}">
+                            ${cat.label}
+                        </span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-1">${name}</h3>
+                    
+                    ${address ? `<p class="text-xs text-gray-600 mb-2"><i class="fa-solid fa-location-dot mr-1 text-gray-400"></i>${address}</p>` : ''}
+                    
+                    <div class="space-y-1 text-xs border-t border-gray-100 pt-2 mt-1">
+                        ${hours ? `
+                            <div class="flex items-start text-gray-700">
+                                <i class="fa-regular fa-clock mt-0.5 mr-1.5 text-indigo-500"></i>
+                                <span><strong>Horari:</strong> ${hours}</span>
+                            </div>
+                        ` : ''}
+                        
+                        ${phone ? `
+                            <div class="flex items-center text-gray-700">
+                                <i class="fa-solid fa-phone mr-1.5 text-green-500"></i>
+                                <a href="tel:${phone}" class="hover:underline">${phone}</a>
+                            </div>
+                        ` : ''}
+                        
+                        ${website ? `
+                            <div class="flex items-center text-gray-700 truncate">
+                                <i class="fa-solid fa-globe mr-1.5 text-blue-500"></i>
+                                <a href="${website}" target="_blank" rel="noopener" class="text-blue-600 hover:underline truncate">${website.replace(/^https?:\/\//, '')}</a>
+                            </div>
+                        ` : ''}
+                        
+                        ${instagram ? `
+                            <div class="flex items-center text-gray-700">
+                                <i class="fa-brands fa-instagram mr-1.5 text-pink-500"></i>
+                                <a href="${instagram.startsWith('http') ? instagram : 'https://instagram.com/' + instagram.replace('@','')}" target="_blank" rel="noopener" class="text-pink-600 hover:underline">Instagram</a>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 6. CÀRREGA DE DADES (data.geojson O PROVA LOCALS) ---
+        async function loadGeoJSONData() {
+            try {
+                // Tenta carregar el fitxer data.geojson del mateix servidor/repositori
+                const response = await fetch('data.geojson');
+                if (!response.ok) throw new Error('Fitxer local data.geojson no trobat.');
+                const data = await response.json();
+                processGeoJSON(data);
+            } catch (err) {
+                console.warn("Carregant dades de mostra per defecte...", err);
+                // Dades de demostració si el fitxer data.geojson no està present inicialment
+                const sampleData = {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Cafè de la Plaça", "amenity": "cafe", "opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-14:00", "phone": "+34 931 234 567", "addr:street": "Carrer Major", "addr:housenumber": "12" },
+                            "geometry": { "type": "Point", "coordinates": [2.15899, 41.38879] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Farmàcia Central", "amenity": "pharmacy", "opening_hours": "Mo-Su 08:30-21:30", "phone": "+34 939 876 543", "addr:street": "Gran Via", "addr:housenumber": "45" },
+                            "geometry": { "type": "Point", "coordinates": [2.16200, 41.38950] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Forn i Pastisseria Soler", "shop": "bakery", "opening_hours": "Mo-Sa 07:00-14:00", "addr:street": "Carrer Nou", "addr:housenumber": "3" },
+                            "geometry": { "type": "Point", "coordinates": [2.15500, 41.38700] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Ajuntament / Oficina d'Atenció", "amenity": "townhall", "opening_hours": "Mo-Fr 09:00-14:00", "addr:street": "Plaça de la Vila", "addr:housenumber": "1" },
+                            "geometry": { "type": "Point", "coordinates": [2.15750, 41.39050] }
+                        }
+                    ]
+                };
+                processGeoJSON(sampleData);
+            }
+        }
+
+        // --- 7. TRACTAMENT I PROCESSAMENT DE LES CAPES ---
+        function processGeoJSON(data) {
+            allMarkers = [];
+
+            geojsonLayer = L.geoJSON(data, {
+                pointToLayer: function (feature, latlng) {
+                    const cat = getCategoryDetails(feature.properties);
+                    const marker = L.marker(latlng, { icon: createCustomIcon(cat) });
+                    
+                    marker.bindPopup(generatePopupHTML(feature.properties, cat), { className: 'custom-popup' });
+                    
+                    // Emmagatzematge de referències per als filtres
+                    allMarkers.push({
+                        marker: marker,
+                        properties: feature.properties,
+                        latlng: latlng,
+                        category: cat.key,
+                        catInfo: cat
+                    });
+
+                    return marker;
+                }
+            }).addTo(map);
+
+            // Ajustar el zoom del mapa automàticament als elements si n'hi ha
+            if (allMarkers.length > 0) {
+                const group = L.featureGroup(allMarkers.map(m => m.marker));
+                map.fitBounds(group.getBounds().pad(0.1));
+            }
+
+            // Actualització inicial de la llista lateral
+            updateSidebarList();
+        }
+
+        // --- 8. FILTRAT D'ELEMENTS A LA COLUMNA DRETA SEGONS EL ZOOM I BBOX VISIBLE ---
+        function updateSidebarList() {
+            const bounds = map.getBounds();
+            const listContainer = document.getElementById('elements-list');
+            const countContainer = document.getElementById('item-count');
+
+            listContainer.innerHTML = '';
+
+            // Filtrar elements que estan dins la pantalla visible I pertanyen a la categoria seleccionada
+            const visibleItems = allMarkers.filter(item => {
+                const isInBounds = bounds.contains(item.latlng);
+                const isCatMatch = (activeCategory === 'all' || item.category === activeCategory);
+                
+                // Mostrar / Amagar el marcador del mapa
+                if (isInBounds && isCatMatch) {
+                    if (!map.hasLayer(item.marker)) map.addLayer(item.marker);
+                } else {
+                    if (map.hasLayer(item.marker)) map.removeLayer(item.marker);
+                }
+
+                return isInBounds && isCatMatch;
+            });
+
+            countContainer.textContent = visibleItems.length;
+
+            if (visibleItems.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="text-center py-12 text-gray-400">
+                        <i class="fa-solid fa-ghost text-3xl mb-2 text-gray-300"></i>
+                        <p class="text-sm font-medium">No hi ha cap element en aquesta àrea de zoom.</p>
+                        <p class="text-xs text-gray-400 mt-1">Mogui el mapa o canviï de categoria.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Renderitzar cada element a la llista lateral
+            visibleItems.forEach(item => {
+                const props = item.properties;
+                const cat = item.catInfo;
+                const name = props.name || 'Sense nom';
+                const hours = translateOpeningHours(props.opening_hours);
+                const website = props.website || props['contact:website'];
+                const phone = props.phone || props['contact:phone'];
+                const instagram = props.instagram || props['contact:instagram'];
+                const street = props['addr:street'] || '';
+                const housenumber = props['addr:housenumber'] || '';
+                const address = (street || housenumber) ? `${street} ${housenumber}`.trim() : null;
+
+                const card = document.createElement('div');
+                card.className = "pt-3 first:pt-0 hover:bg-gray-50/80 p-2.5 rounded-xl transition cursor-pointer border border-transparent hover:border-gray-200 group";
+                
+                card.innerHTML = `
+                    <div class="flex items-start justify-between">
+                        <h3 class="font-bold text-gray-900 group-hover:text-indigo-600 transition text-base leading-snug">${name}</h3>
+                        <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full text-white shrink-0 ml-2" style="background-color: ${cat.color}">
+                            ${cat.label}
+                        </span>
+                    </div>
+
+                    ${address ? `<p class="text-xs text-gray-500 mt-1 flex items-center"><i class="fa-solid fa-location-dot mr-1.5 text-gray-400"></i>${address}</p>` : ''}
+
+                    <div class="mt-2 space-y-1 text-xs text-gray-600">
+                        ${hours ? `
+                            <div class="flex items-start">
+                                <i class="fa-regular fa-clock mt-0.5 mr-1.5 text-indigo-500 shrink-0"></i>
+                                <span class="text-gray-700">${hours}</span>
+                            </div>
+                        ` : ''}
+                        
+                        <div class="flex flex-wrap gap-x-3 gap-y-1 pt-1.5">
+                            ${phone ? `<a href="tel:${phone}" onclick="event.stopPropagation()" class="text-gray-600 hover:text-green-600 flex items-center"><i class="fa-solid fa-phone mr-1 text-green-500"></i>${phone}</a>` : ''}
+                            ${website ? `<a href="${website}" target="_blank" onclick="event.stopPropagation()" class="text-blue-600 hover:underline flex items-center"><i class="fa-solid fa-globe mr-1 text-blue-500"></i>Lloc web</a>` : ''}
+                            ${instagram ? `<a href="${instagram.startsWith('http') ? instagram : 'https://instagram.com/' + instagram.replace('@','')}" target="_blank" onclick="event.stopPropagation()" class="text-pink-600 hover:underline flex items-center"><i class="fa-brands fa-instagram mr-1 text-pink-500"></i>Instagram</a>` : ''}
+                        </div>
+                    </div>
+                `;
+
+                // En fer clic a la targeta, fer zoom i obrir la finestra del marcador
+                card.onclick = () => {
+                    map.panTo(item.latlng);
+                    item.marker.openPopup();
+                };
+
+                listContainer.appendChild(card);
+            });
+        }
+
+        // --- 9. FILTRE DE CATEGORIES ---
+        function filterCategory(catKey) {
+            activeCategory = catKey;
+
+            // Actualització visual dels botons de filtre
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-indigo-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            event.target.classList.add('active', 'bg-indigo-600', 'text-white');
+            event.target.classList.remove('bg-white', 'text-gray-700');
+
+            updateSidebarList();
+        }
+
+        // --- 10. ESDEVENIMENTS DEL MAPA PER ACTUALITZAR A TEMPS REAL ---
+        map.on('moveend', updateSidebarList);
+        map.on('zoomend', updateSidebarList);
+
+        // Inicialització en carregar la pàgina
+        loadGeoJSONData();
+    </script>
+</body>
+</html>
