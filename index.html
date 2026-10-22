@@ -131,35 +131,21 @@
             }
         }
 
-        // --- MAPES EN VERSIONS CLARES DE GRISOS (SENSE API KEY) ---
-        const cartoPositron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 20
-        });
-
+        // --- EXCLUSIVAMENT OSM ESTÀNDARD COM A CAPA PREDEFINIDA ---
         const osmStandard = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
 
-        const cartoDark = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-            subdomains: 'abcd',
-            maxZoom: 20
-        });
-
-        // Mapa centrat a Sant Andreu de la Barca
+        // Mapa centrat a Sant Andreu de la Barca amb OSM Standard
         const map = L.map('map', {
             center: [41.4468, 1.9708],
             zoom: 15,
-            layers: [cartoPositron]
+            layers: [osmStandard]
         });
 
         const baseMaps = {
-            "Gris clar (Positron)": cartoPositron,
-            "OSM Estàndard": osmStandard,
-            "Gris fosc (Dark)": cartoDark
+            "OSM Estàndard": osmStandard
         };
         L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
 
