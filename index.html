@@ -15,7 +15,15 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         #map {
             height: 100vh;
             width: 100%;
@@ -33,34 +41,27 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-    </style>
-</head>
-<body class="bg-gray-100 font-sans text-gray-800 antialiased overflow-hidden">
-
-    <div class="flex flex-col md:flex-row h-screen w-screen relative">
-        
-        <!-- Imatge superior esquerra (125x125px) -->
-        <div class="absolute top-4 left-4 z-[1000] bg-white/90 backdrop-blur-md p-2 rounded-2xl shadow-xl border border-gray-200/80 flex items-center justify-center transition-transform hover:scale-105">
-            <img src="image.jpg" alt="Logotip" class="w-[125px] h-[125px] object-cover rounded-xl shadow-inner border border-gray-100" onerror="this.onerror=null; this.src='https://via.placeholder.com/125?text=Imatge';">
-        </div>
-
-        <!-- Contenidor del Mapa -->
-        <div class="flex-1 h-full w-full relative">
-            <div id="map"></div>
-            
-            <!-- Barra de Filtres per Categoria (Desplegable) -->
-            <div class="absolute top-4 left-40 sm:left-44 right-16 z-[999] bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300">
-                <div class="p-2 flex items-center justify-between border-b border-gray-100">
-                    <span class="text-xs font-bold text-gray-700 uppercase tracking-wider px-2">Categories</span>
-                    <button id="toggle-cats-btn" onclick="toggleCategories()" class="text-xs bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-semibold px-2.5 py-1 rounded-lg transition flex items-center space-x-1">
-                        <span id="toggle-cats-text">Desplegar totes</span>
-                        <i id="toggle-cats-icon" class="fa-solid fa-chevron-down transition-transform"></i>
-                    </button>
-                </div>
-
+        .custom-marker-icon {
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
                 <!-- Contenidor de botons de categoria -->
                 <div id="categories-container" class="p-2 flex overflow-x-auto space-x-2 no-scrollbar max-h-12 transition-all duration-300">
                     <button onclick="filterCategory('all')" class="cat-btn active bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap transition shadow-sm hover:bg-indigo-700">Totes</button>
+                    <button onclick="filterCategory('optica')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">👓 Òptica</button>
+                    <button onclick="filterCategory('gossos')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🐕 Gossos</button>
+                    <button onclick="filterCategory('immobiliaria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🏠 Immobiliària</button>
+                    <button onclick="filterCategory('papereria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">✏️ Papereria</button>
+                    <button onclick="filterCategory('supermercat')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛒 Supermercat</button>
+                    <button onclick="filterCategory('fusteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🪵 Fusteria</button>
+                    <button onclick="filterCategory('decoracio')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛋️ Decoració</button>
+                    <button onclick="filterCategory('joieria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💍 Joieria</button>
+                    <button onclick="filterCategory('llaminadures')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍬 Llaminadures</button>
+                    <button onclick="filterCategory('floristeria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💐 Floristeria</button>
+                    <button onclick="filterCategory('tatuatges')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🎨 Tatuatges</button>
+                    <button onclick="filterCategory('escola_dansa')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💃 Escola de dansa</button>
+                    <button onclick="filterCategory('osteopata')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🦴 Osteòpata</button>
+                    <button onclick="filterCategory('escola_idiomes')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🗣️ Escola d'idiomes</button>
+                    <button onclick="filterCategory('escola_art')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🎭 Escola d'art</button>
                     <button onclick="filterCategory('bugaderia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🧺 Bugaderia</button>
                     <button onclick="filterCategory('fleca')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🥐 Fleca</button>
                     <button onclick="filterCategory('fruiteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍏 Fruiteria</button>
@@ -86,98 +87,67 @@
                     <button onclick="filterCategory('tabac')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🚬 Tabac</button>
                 </div>
             </div>
-        </div>
 
-        <!-- Panell Lateral Dret -->
-        <div class="w-full md:w-96 lg:w-[420px] bg-white h-1/2 md:h-full z-10 shadow-2xl border-l border-gray-200 flex flex-col">
-            <div class="p-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
-                <div>
-                    <h2 class="text-lg font-bold text-gray-800">Elements en aquesta àrea</h2>
-                    <p class="text-xs text-gray-500">Mogui o faci zoom al mapa per actualitzar la llista</p>
-                </div>
-                <span id="item-count" class="bg-indigo-100 text-indigo-700 font-bold text-xs px-2.5 py-1 rounded-full">0</span>
-            </div>
-
-            <div id="elements-list" class="flex-1 overflow-y-auto p-4 space-y-3 divide-y divide-gray-100">
-                <div class="text-center py-8 text-gray-400">
-                    <i class="fa-solid fa-map-location-dot text-4xl mb-2 text-gray-300"></i>
-                    <p class="text-sm">Carregant dades del mapa...</p>
-                </div>
+            <!-- Peu del panell -->
+            <div class="p-2.5 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-500">
+                Mapa LGBTIfriendly de Sant Andreu de la Barca &bull; OpenStreetMap
             </div>
         </div>
 
     </div>
 
     <script>
-        // --- DESPLEGAR / CONTREURE CATEGORIES ---
-        let categoriesExpanded = false;
-        function toggleCategories() {
-            const container = document.getElementById('categories-container');
-            const text = document.getElementById('toggle-cats-text');
-            const icon = document.getElementById('toggle-cats-icon');
+        // --- COORDENADES PER DEFECTE: Sant Andreu de la Barca ---
+        const DEFAULT_CENTER = [41.4468, 1.9708];
+        const DEFAULT_ZOOM = 15;
 
-            categoriesExpanded = !categoriesExpanded;
-
-            if (categoriesExpanded) {
-                container.classList.remove('max-h-12', 'overflow-x-auto', 'whitespace-nowrap');
-                container.classList.add('flex-wrap', 'gap-y-2', 'max-h-64', 'overflow-y-auto');
-                text.textContent = 'Contreure';
-                icon.classList.add('rotate-180');
-            } else {
-                container.classList.add('max-h-12', 'overflow-x-auto', 'whitespace-nowrap');
-                container.classList.remove('flex-wrap', 'gap-y-2', 'max-h-64', 'overflow-y-auto');
-                text.textContent = 'Desplegar totes';
-                icon.classList.remove('rotate-180');
-            }
-        }
-
-        // --- EXCLUSIVAMENT OSM ESTÀNDARD COM A CAPA PREDEFINIDA ---
-        const osmStandard = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        });
-
-        // Mapa centrat a Sant Andreu de la Barca amb OSM Standard
-        const map = L.map('map', {
-            center: [41.4468, 1.9708],
-            zoom: 15,
-            layers: [osmStandard]
-        });
-
-        const baseMaps = {
-            "OSM Estàndard": osmStandard
-        };
-        L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
-
-        let allMarkers = [];
-        let activeCategory = 'all';
-
-        // --- TRADUCCIÓ D'HORARIS AL CATALÀ ---
-        function translateOpeningHours(oh) {
-            if (!oh) return null;
-            let translated = oh;
-
-            const daysMap = {
-                'Mo': 'Dl', 'Tu': 'Dt', 'We': 'Dc', 'Th': 'Dj', 'Fr': 'Dv', 'Sa': 'Ds', 'Su': 'Dg',
-                'Mo-Fr': 'Dl-Dv', 'Mo-Sa': 'Dl-Ds', 'Sa-Su': 'Ds-Dg', 'PH': 'Festius', 'Off': 'Tancat'
-            };
-
-            for (const [key, val] of Object.entries(daysMap)) {
-                const reg = new RegExp('\\b' + key + '\\b', 'g');
-                translated = translated.replace(reg, val);
-            }
-
-            translated = translated.replace(/24\/7/g, 'Obert 24h');
-            translated = translated.replace(/off/gi, 'Tancat');
-            return translated;
-        }
-
+        // --- DICCIOMARI DE CATEGORIES ---
+        const categoriesDict = {
+            cafeteria: { label: 'Cafeteries', icon: 'fa-mug-saucer', color: '#d97706', tags: { amenity: ['cafe'] } },
+            restaurant: { label: 'Restaurants', icon: 'fa-utensils', color: '#dc2626', tags: { amenity: ['restaurant', 'food_court'] } },
+            bar: { label: 'Bars', icon: 'fa-beer-mug-empty', color: '#eab308', tags: { amenity: ['bar', 'pub', 'biergarten'] } },
+            panaderia: { label: 'Forns / Panaderies', icon: 'fa-bread-slice', color: '#b45309', tags: { shop: ['bakery', 'pastry'] } },
+            farmacia: { label: 'Farmàcies', icon: 'fa-prescription-bottle-medical', color: '#16a34a', tags: { amenity: ['pharmacy'] } },
+            clinica: { label: 'Clíniques / Salut', icon: 'fa-briefcase-medical', color: '#2563eb', tags: { amenity: ['clinic', 'hospital', 'doctors', 'dentist'] } },
+            perruqueria: { label: 'Estètica / Perruqueries', icon: 'fa-scissors', color: '#ec4899', tags: { shop: ['hairdresser', 'beauty', 'cosmetics'] } },
+            ropa: { label: 'Botigues de Roba', icon: 'fa-shirt', color: '#8b5cf6', tags: { shop: ['clothes', 'fashion', 'boutique', 'shoes'] } },
+            supermercat: { label: 'Supermercats', icon: 'fa-cart-shopping', color: '#0284c7', tags: { shop: ['supermarket', 'convenience', 'grocery'] } },
+            edifici_public: { label: 'Edificis Públics', icon: 'fa-landmark', color: '#475569', tags: { amenity: ['townhall', 'public_building', 'community_centre', 'library'], building: ['public'] } },
+            ferreteria: { label: 'Ferreteries', icon: 'fa-wrench', color: '#ea580c', tags: { shop: ['hardware', 'doityourself', 'trade'] } },
+            floristeria: { label: 'Floristeries', icon: 'fa-seedling', color: '#10b981', tags: { shop: ['florist', 'flowers'] } },
+            educacio: { label: 'Educació', icon: 'fa-graduation-cap', color: '#4f46e5', tags: { amenity: ['school', 'kindergarten', 'college', 'university', 'language_school', 'music_school'] } },
+            delicatessen: { label: 'Delicatessen', icon: 'fa-cheese', color: '#d97706', tags: { shop: ['deli', 'delicatessen', 'gourmet'] } },
+            medicina_alternativa: { label: 'Medicina Alternativa', icon: 'fa-leaf', color: '#059669', tags: { healthcare: ['alternative'], shop: ['herbalist', 'health_food'] } },
+            estanco: { label: 'Estancs', icon: 'fa-[#000000]', iconClass: 'fa-solid fa-store', color: '#9333ea', tags: { shop: ['tobacconist'] } },
+            bicicletes: { label: 'Bicicletes', icon: 'fa-bicycle', color: '#06b6d4', tags: { shop: ['bicycle'] } },
+            tintoreria: { label: 'Tintoreries / Bugaderies', icon: 'fa-jug-detergent', color: '#6366f1', tags: { shop: ['dry_cleaning', 'laundry'] } },
+            altres: { label: 'Altres', icon: 'fa-location-dot', color: '#6b7280', tags: {} }
         // --- CATEGORITZACIÓ COMPLETA ---
         function getCategoryDetails(props) {
             const amenity = props.amenity || '';
             const shop = props.shop || '';
             const office = props.office || '';
+            const craft = props.craft || '';
+            const healthcare = props.healthcare || '';
 
+            // 15 noves categories
+            if (shop === 'optician') return { key: 'optica', label: 'Òptica', icon: 'fa-glasses', color: '#0284c7' };
+            if (shop === 'pet') return { key: 'gossos', label: 'Gossos', icon: 'fa-dog', color: '#854d0e' };
+            if (office === 'estate_agent') return { key: 'immobiliaria', label: 'Immobiliària', icon: 'fa-house', color: '#0d9488' };
+            if (['stationery', 'books'].includes(shop)) return { key: 'papereria', label: 'Papereria', icon: 'fa-pen-nib', color: '#d97706' };
+            if (['supermarket', 'convenience'].includes(shop)) return { key: 'supermercat', label: 'Supermercat', icon: 'fa-cart-shopping', color: '#16a34a' };
+            if (craft === 'carpenter' || shop === 'carpenter') return { key: 'fusteria', label: 'Fusteria', icon: 'fa-tree', color: '#a16207' };
+            if (['interior_decoration', 'furniture'].includes(shop)) return { key: 'decoracio', label: 'Decoració', icon: 'fa-couch', color: '#c026d3' };
+            if (shop === 'jewelry') return { key: 'joieria', label: 'Joieria', icon: 'fa-gem', color: '#e11d48' };
+            if (shop === 'confectionery') return { key: 'llaminadures', label: 'Llaminadures', icon: 'fa-candy-cane', color: '#f43f5e' };
+            if (shop === 'florist') return { key: 'floristeria', label: 'Floristeria', icon: 'fa-fan', color: '#059669' };
+            if (shop === 'tattoo') return { key: 'tatuatges', label: 'Tatuatges', icon: 'fa-paintbrush', color: '#4c1d95' };
+            if (amenity === 'dance_school') return { key: 'escola_dansa', label: 'Escola de dansa', icon: 'fa-person-dancing', color: '#db2777' };
+            if (amenity === 'osteopath' || healthcare === 'osteopath') return { key: 'osteopata', label: 'Osteòpata', icon: 'fa-bone', color: '#0ea5e9' };
+            if (amenity === 'language_school') return { key: 'escola_idiomes', label: 'Escola d\'idiomes', icon: 'fa-comments', color: '#2563eb' };
+            if (['arts_centre', 'art_school'].includes(amenity)) return { key: 'escola_art', label: 'Escola d\'art', icon: 'fa-palette', color: '#9333ea' };
+
+            // Categories anteriors
             if (['laundry', 'dry_cleaning'].includes(shop)) return { key: 'bugaderia', label: 'Bugaderia', icon: 'fa-soap', color: '#0284c7' };
             if (['bakery', 'pastry'].includes(shop)) return { key: 'fleca', label: 'Fleca', icon: 'fa-bread-slice', color: '#b45309' };
             if (shop === 'greengrocer') return { key: 'fruiteria', label: 'Fruiteria', icon: 'fa-apple-whole', color: '#16a34a' };
@@ -205,12 +175,38 @@
             return { key: 'altres', label: 'Altres', icon: 'fa-location-dot', color: '#6b7280' };
         }
 
+            translated = translated.replace(/24\/7/g, 'Obert 24h');
+            translated = translated.replace(/off/gi, 'Tancat');
+            return translated;
+        }
+
+        // --- DETERMINAR CATEGORIA DE L'ELEMENT ---
+        function getCategoryDetails(props) {
+            const amenity = (props.amenity || '').toLowerCase();
+            const shop = (props.shop || '').toLowerCase();
+            const healthcare = (props.healthcare || '').toLowerCase();
+            const building = (props.building || '').toLowerCase();
+
+            for (const [key, cat] of Object.entries(categoriesDict)) {
+                if (key === 'altres') continue;
+                const t = cat.tags;
+                if (t.amenity && t.amenity.includes(amenity)) return { key, ...cat };
+                if (t.shop && t.shop.includes(shop)) return { key, ...cat };
+                if (t.healthcare && t.healthcare.includes(healthcare)) return { key, ...cat };
+                if (t.building && t.building.includes(building)) return { key, ...cat };
+            }
+
+            return { key: 'altres', ...categoriesDict.altres };
+        }
+
+        // --- CREAR ICONA DEL MARCADOR ---
         function createCustomIcon(cat) {
+            const iconClass = cat.iconClass || `fa-solid ${cat.icon}`;
             return L.divIcon({
-                className: 'custom-leaflet-icon',
+                className: 'custom-marker-icon',
                 html: `
-                    <div style="background-color: ${cat.color};" class="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white transition-transform hover:scale-110">
-                        <i class="fa-solid ${cat.icon} text-xs"></i>
+                    <div style="background-color: ${cat.color};" class="w-8 h-8 rounded-full flex items-center justify-center text-white shadow-lg border-2 border-white">
+                        <i class="${iconClass} text-xs"></i>
                     </div>
                 `,
                 iconSize: [32, 32],
@@ -219,14 +215,15 @@
             });
         }
 
+        // --- POPUPS ---
         function generatePopupHTML(props, cat) {
             const name = props.name || 'Sense nom';
             const hours = translateOpeningHours(props.opening_hours);
             const website = props.website || props['contact:website'];
             const phone = props.phone || props['contact:phone'];
             const instagram = props.instagram || props['contact:instagram'];
-            const street = props['addr:street'] || '';
-            const housenumber = props['addr:housenumber'] || '';
+            const street = props['addr:street'] || props.street || '';
+            const housenumber = props['addr:housenumber'] || props.housenumber || '';
             const address = (street || housenumber) ? `${street} ${housenumber}`.trim() : null;
 
             return `
@@ -236,36 +233,36 @@
                             ${cat.label}
                         </span>
                     </div>
-                    <h3 class="font-bold text-gray-900 text-base leading-snug mb-1">${name}</h3>
+                    <h3 class="font-bold text-slate-900 text-base leading-snug mb-1">${name}</h3>
                     
-                    ${address ? `<p class="text-xs text-gray-600 mb-2"><i class="fa-solid fa-location-dot mr-1 text-gray-400"></i>${address}</p>` : ''}
+                    ${address ? `<p class="text-xs text-slate-600 mb-2"><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i>${address}</p>` : ''}
                     
-                    <div class="space-y-1 text-xs border-t border-gray-100 pt-2 mt-1">
+                    <div class="space-y-1 text-xs border-t border-slate-100 pt-2 mt-1">
                         ${hours ? `
-                            <div class="flex items-start text-gray-700">
+                            <div class="flex items-start text-slate-700">
                                 <i class="fa-regular fa-clock mt-0.5 mr-1.5 text-indigo-500"></i>
                                 <span><strong>Horari:</strong> ${hours}</span>
                             </div>
                         ` : ''}
                         
                         ${phone ? `
-                            <div class="flex items-center text-gray-700">
-                                <i class="fa-solid fa-phone mr-1.5 text-green-500"></i>
-                                <a href="tel:${phone}" class="hover:underline">${phone}</a>
+                            <div class="flex items-center text-slate-700">
+                                <i class="fa-solid fa-phone mr-1.5 text-emerald-500"></i>
+                                <a href="tel:${phone}" class="hover:underline text-indigo-600 font-medium">${phone}</a>
                             </div>
                         ` : ''}
                         
                         ${website ? `
-                            <div class="flex items-center text-gray-700 truncate">
+                            <div class="flex items-center text-slate-700 truncate">
                                 <i class="fa-solid fa-globe mr-1.5 text-blue-500"></i>
-                                <a href="${website}" target="_blank" rel="noopener" class="text-blue-600 hover:underline truncate">${website.replace(/^https?:\/\//, '')}</a>
+                                <a href="${website}" target="_blank" rel="noopener" class="text-indigo-600 hover:underline truncate font-medium">${website.replace(/^https?:\/\//, '')}</a>
                             </div>
                         ` : ''}
                         
                         ${instagram ? `
-                            <div class="flex items-center text-gray-700">
+                            <div class="flex items-center text-slate-700">
                                 <i class="fa-brands fa-instagram mr-1.5 text-pink-500"></i>
-                                <a href="${instagram.startsWith('http') ? instagram : 'https://instagram.com/' + instagram.replace('@','')}" target="_blank" rel="noopener" class="text-pink-600 hover:underline">Instagram</a>
+                                <a href="${instagram.startsWith('http') ? instagram : 'https://instagram.com/' + instagram.replace('@','')}" target="_blank" rel="noopener" class="text-pink-600 hover:underline font-medium">Instagram</a>
                             </div>
                         ` : ''}
                     </div>
@@ -273,6 +270,35 @@
             `;
         }
 
+        // --- RENDERITZAR CHIPS DE CATEGORIES ---
+        function renderCategoryChips() {
+            const container = document.getElementById('category-chips-container');
+            container.innerHTML = '';
+
+            // Botó "Tots"
+            const allBtn = document.createElement('button');
+            allBtn.className = `cat-btn px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition border ${
+                activeCategory === 'all' ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+            }`;
+            allBtn.textContent = 'Tots';
+            allBtn.onclick = () => filterCategory('all');
+            container.appendChild(allBtn);
+
+            // Botons per categoria
+            Object.entries(categoriesDict).forEach(([key, cat]) => {
+                if (key === 'altres') return;
+                const btn = document.createElement('button');
+                const isActive = activeCategory === key;
+                btn.className = `cat-btn px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition border flex items-center space-x-1.5 ${
+                    isActive ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                }`;
+                btn.innerHTML = `<i class="${cat.iconClass || 'fa-solid ' + cat.icon}" style="${isActive ? '' : 'color:' + cat.color}"></i> <span>${cat.label}</span>`;
+                btn.onclick = () => filterCategory(key);
+                container.appendChild(btn);
+            });
+        }
+
+        // --- CÀRREGA DE DADES GEOJSON ---
         async function loadGeoJSONData() {
             try {
                 const response = await fetch('data.geojson');
@@ -280,19 +306,39 @@
                 const data = await response.json();
                 processGeoJSON(data);
             } catch (err) {
-                console.warn("Carregant dades de mostra...", err);
+                console.warn("Utilitzant dades de demostració de Sant Andreu de la Barca...", err);
                 const sampleData = {
                     "type": "FeatureCollection",
                     "features": [
                         {
                             "type": "Feature",
-                            "properties": { "name": "Cafè de la Plaça", "amenity": "cafe", "opening_hours": "Mo-Fr 08:00-20:00; Sa 09:00-14:00", "phone": "+34 931 234 567", "addr:street": "Carrer Major", "addr:housenumber": "12" },
+                            "properties": { "name": "Cafè de la Plaça", "amenity": "cafe", "opening_hours": "Mo-Fr 07:30-20:00; Sa 08:00-14:00", "phone": "+34 936 82 00 11", "addr:street": "Plaça de la Constitució", "addr:housenumber": "1" },
                             "geometry": { "type": "Point", "coordinates": [1.9708, 41.4468] }
                         },
                         {
                             "type": "Feature",
-                            "properties": { "name": "Farmàcia Central", "amenity": "pharmacy", "opening_hours": "Mo-Su 08:30-21:30", "phone": "+34 939 876 543", "addr:street": "Carretera de Barcelona", "addr:housenumber": "45" },
-                            "geometry": { "type": "Point", "coordinates": [1.9720, 41.4475] }
+                            "properties": { "name": "Farmàcia Central Sant Andreu", "amenity": "pharmacy", "opening_hours": "Mo-Sa 08:30-21:30", "phone": "+34 936 82 12 34", "addr:street": "Carrer de la Carretera", "addr:housenumber": "24" },
+                            "geometry": { "type": "Point", "coordinates": [1.9725, 41.4475] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Floristeria L'Espigol", "shop": "florist", "opening_hours": "Mo-Sa 09:00-13:30,17:00-20:00", "contact:instagram": "@floristeria_lespigol", "addr:street": "Avinguda de la Constitució", "addr:housenumber": "50" },
+                            "geometry": { "type": "Point", "coordinates": [1.9692, 41.4455] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Bicicletes Sant Andreu", "shop": "bicycle", "opening_hours": "Mo-Fr 09:30-13:30,16:30-20:00", "website": "https://bisisantandreu.cat", "addr:street": "Carrer de Catalunya", "addr:housenumber": "10" },
+                            "geometry": { "type": "Point", "coordinates": [1.9731, 41.4482] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Escola bressol municipal", "amenity": "kindergarten", "opening_hours": "Mo-Fr 08:00-17:00", "addr:street": "Carrer de l'Esport", "addr:housenumber": "5" },
+                            "geometry": { "type": "Point", "coordinates": [1.9680, 41.4460] }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": { "name": "Herboristeria i Salut Natural", "shop": "herbalist", "opening_hours": "Mo-Sa 09:00-13:30", "addr:street": "Carrer Major", "addr:housenumber": "15" },
+                            "geometry": { "type": "Point", "coordinates": [1.9715, 41.4462] }
                         }
                     ]
                 };
@@ -303,7 +349,7 @@
         function processGeoJSON(data) {
             allMarkers = [];
 
-            L.geoJSON(data, {
+            geojsonLayer = L.geoJSON(data, {
                 pointToLayer: function (feature, latlng) {
                     const cat = getCategoryDetails(feature.properties);
                     const marker = L.marker(latlng, { icon: createCustomIcon(cat) });
@@ -330,6 +376,7 @@
             updateSidebarList();
         }
 
+        // --- FILTRAT PER ZOOM I VIEWPORT ---
         function updateSidebarList() {
             const bounds = map.getBounds();
             const listContainer = document.getElementById('elements-list');
@@ -354,10 +401,10 @@
 
             if (visibleItems.length === 0) {
                 listContainer.innerHTML = `
-                    <div class="text-center py-12 text-gray-400">
-                        <i class="fa-solid fa-ghost text-3xl mb-2 text-gray-300"></i>
-                        <p class="text-sm font-medium">No hi ha cap element en aquesta àrea de zoom.</p>
-                        <p class="text-xs text-gray-400 mt-1">Mogui el mapa o canviï de categoria.</p>
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-ghost text-3xl mb-2 text-slate-300"></i>
+                        <p class="text-sm font-medium">No hi ha cap element en aquesta àrea.</p>
+                        <p class="text-xs text-slate-400 mt-1">Mogui el mapa o seleccioni una altra categoria.</p>
                     </div>
                 `;
                 return;
@@ -371,35 +418,35 @@
                 const website = props.website || props['contact:website'];
                 const phone = props.phone || props['contact:phone'];
                 const instagram = props.instagram || props['contact:instagram'];
-                const street = props['addr:street'] || '';
-                const housenumber = props['addr:housenumber'] || '';
+                const street = props['addr:street'] || props.street || '';
+                const housenumber = props['addr:housenumber'] || props.housenumber || '';
                 const address = (street || housenumber) ? `${street} ${housenumber}`.trim() : null;
 
                 const card = document.createElement('div');
-                card.className = "pt-3 first:pt-0 hover:bg-gray-50/80 p-2.5 rounded-xl transition cursor-pointer border border-transparent hover:border-gray-200 group";
+                card.className = "pt-3 first:pt-0 hover:bg-slate-50 p-2.5 rounded-xl transition cursor-pointer border border-transparent hover:border-slate-200 group";
                 
                 card.innerHTML = `
                     <div class="flex items-start justify-between">
-                        <h3 class="font-bold text-gray-900 group-hover:text-indigo-600 transition text-base leading-snug">${name}</h3>
+                        <h3 class="font-bold text-slate-900 group-hover:text-indigo-600 transition text-base leading-snug">${name}</h3>
                         <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full text-white shrink-0 ml-2" style="background-color: ${cat.color}">
                             ${cat.label}
                         </span>
                     </div>
 
-                    ${address ? `<p class="text-xs text-gray-500 mt-1 flex items-center"><i class="fa-solid fa-location-dot mr-1.5 text-gray-400"></i>${address}</p>` : ''}
+                    ${address ? `<p class="text-xs text-slate-500 mt-1 flex items-center"><i class="fa-solid fa-location-dot mr-1.5 text-slate-400"></i>${address}</p>` : ''}
 
-                    <div class="mt-2 space-y-1 text-xs text-gray-600">
+                    <div class="mt-2 space-y-1 text-xs text-slate-600">
                         ${hours ? `
                             <div class="flex items-start">
                                 <i class="fa-regular fa-clock mt-0.5 mr-1.5 text-indigo-500 shrink-0"></i>
-                                <span class="text-gray-700">${hours}</span>
+                                <span class="text-slate-700">${hours}</span>
                             </div>
                         ` : ''}
                         
                         <div class="flex flex-wrap gap-x-3 gap-y-1 pt-1.5">
-                            ${phone ? `<a href="tel:${phone}" onclick="event.stopPropagation()" class="text-gray-600 hover:text-green-600 flex items-center"><i class="fa-solid fa-phone mr-1 text-green-500"></i>${phone}</a>` : ''}
-                            ${website ? `<a href="${website}" target="_blank" onclick="event.stopPropagation()" class="text-blue-600 hover:underline flex items-center"><i class="fa-solid fa-globe mr-1 text-blue-500"></i>Lloc web</a>` : ''}
-                            ${instagram ? `<a href="${instagram.startsWith('http') ? instagram : 'https://instagram.com/' + instagram.replace('@','')}" target="_blank" onclick="event.stopPropagation()" class="text-pink-600 hover:underline flex items-center"><i class="fa-brands fa-instagram mr-1 text-pink-500"></i>Instagram</a>` : ''}
+                            ${phone ? `<a href="tel:${phone}" onclick="event.stopPropagation()" class="text-slate-600 hover:text-emerald-600 flex items-center font-medium"><i class="fa-solid fa-phone mr-1 text-emerald-500"></i>${phone}</a>` : ''}
+                            ${website ? `<a href="${website}" target="_blank" onclick="event.stopPropagation()" class="text-indigo-600 hover:underline flex items-center font-medium"><i class="fa-solid fa-globe mr-1 text-blue-500"></i>Lloc web</a>` : ''}
+                            ${instagram ? `<a href="${instagram.startsWith('http') ? instagram : 'https://instagram.com/' + instagram.replace('@','')}" target="_blank" onclick="event.stopPropagation()" class="text-pink-600 hover:underline flex items-center font-medium"><i class="fa-brands fa-instagram mr-1 text-pink-500"></i>Instagram</a>` : ''}
                         </div>
                     </div>
                 `;
@@ -413,25 +460,18 @@
             });
         }
 
+        // --- FILTRAR PER CATEGORIA ---
         function filterCategory(catKey) {
             activeCategory = catKey;
-
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-indigo-600', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-700');
-            });
-
-            if (event && event.target) {
-                event.target.classList.add('active', 'bg-indigo-600', 'text-white');
-                event.target.classList.remove('bg-white', 'text-gray-700');
-            }
-
+            renderCategoryChips();
             updateSidebarList();
         }
 
         map.on('moveend', updateSidebarList);
         map.on('zoomend', updateSidebarList);
 
+        // Inicialitzar
+        renderCategoryChips();
         loadGeoJSONData();
     </script>
 </body>
