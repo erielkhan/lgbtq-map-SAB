@@ -48,7 +48,7 @@
         <div class="flex-1 h-full w-full relative">
             <div id="map"></div>
             
-            <!-- Barra de Filtres per Categoria (Desplegable) -->
+            <!-- Barra de Filtres per Categoria (Desplegable i en Ordre Alfabètic) -->
             <div class="absolute top-4 left-40 sm:left-44 right-16 z-[999] bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-gray-200/80 transition-all duration-300">
                 <div class="p-2 flex items-center justify-between border-b border-gray-100">
                     <span class="text-xs font-bold text-gray-700 uppercase tracking-wider px-2">Categories</span>
@@ -58,47 +58,46 @@
                     </button>
                 </div>
 
-                <!-- Contenidor de botons de categoria -->
+                <!-- Contenidor de botons de categoria ordenats alfabèticament -->
                 <div id="categories-container" class="p-2 flex overflow-x-auto space-x-2 no-scrollbar max-h-12 transition-all duration-300">
                     <button onclick="filterCategory('all')" class="cat-btn active bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-lg whitespace-nowrap transition shadow-sm hover:bg-indigo-700">Totes</button>
-                    <button onclick="filterCategory('bugaderia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🧺 Bugaderia</button>
-                    <button onclick="filterCategory('fleca')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🥐 Fleca</button>
-                    <button onclick="filterCategory('fruiteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍏 Fruiteria</button>
-                    <button onclick="filterCategory('carnisseria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🥩 Carnisseria</button>
-                    <button onclick="filterCategory('peixateria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🐟 Peixateria</button>
-                    <button onclick="filterCategory('restaurant')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍽️ Restaurant</button>
+                    <button onclick="filterCategory('assegurances')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛡️ Assegurances</button>
+                    <button onclick="filterCategory('autoescola')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🚗 Autoescola</button>
                     <button onclick="filterCategory('bar')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍺 Bar</button>
+                    <button onclick="filterCategory('bicicletes')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🚲 Bicicletes</button>
+                    <button onclick="filterCategory('bugaderia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🧺 Bugaderia</button>
                     <button onclick="filterCategory('cafeteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">☕ Cafeteria</button>
-                    <button onclick="filterCategory('educacio')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🎓 Educació</button>
-                    <button onclick="filterCategory('farmacia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💊 Farmàcia</button>
+                    <button onclick="filterCategory('carnisseria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🥩 Carnisseria</button>
                     <button onclick="filterCategory('clinica')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🏥 Clínica</button>
-                    <button onclick="filterCategory('optica')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">👓 Òptica</button>
-                    <button onclick="filterCategory('gossos')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🐾 Gossos</button>
-                    <button onclick="filterCategory('immobiliaria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🏠 Immobiliària</button>
-                    <button onclick="filterCategory('papereria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">📚 Papereria</button>
-                    <button onclick="filterCategory('supermercat')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛒 Supermercat</button>
-                    <button onclick="filterCategory('fusteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🪚 Fusteria</button>
                     <button onclick="filterCategory('decoracio')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛋️ Decoració</button>
+                    <button onclick="filterCategory('educacio')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🎓 Educació</button>
+                    <button onclick="filterCategory('escola_art')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🖌️ Escola d'art</button>
+                    <button onclick="filterCategory('idiomes')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🗣️ Escola d'idiomes</button>
+                    <button onclick="filterCategory('dansa')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💃 Escola de dansa</button>
+                    <button onclick="filterCategory('farmacia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💊 Farmàcia</button>
+                    <button onclick="filterCategory('ferreteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🔧 Ferreteria</button>
+                    <button onclick="filterCategory('fleca')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🥐 Fleca</button>
+                    <button onclick="filterCategory('floristeria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💐 Floristeria</button>
+                    <button onclick="filterCategory('fotografia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">📸 Fotografia</button>
+                    <button onclick="filterCategory('fruiteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍏 Fruiteria</button>
+                    <button onclick="filterCategory('fusteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🪚 Fusteria</button>
+                    <button onclick="filterCategory('gestoria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">📑 Gestoria</button>
+                    <button onclick="filterCategory('gossos')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🐾 Gossos</button>
+                    <button onclick="filterCategory('herboristeria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🌿 Herboristeria</button>
+                    <button onclick="filterCategory('immobiliaria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🏠 Immobiliària</button>
                     <button onclick="filterCategory('joieria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💎 Joieria</button>
                     <button onclick="filterCategory('llaminadures')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍬 Llaminadures</button>
-                    <button onclick="filterCategory('floristeria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💐 Floristeria</button>
-                    <button onclick="filterCategory('tatuatges')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🎨 Tatuatges</button>
-                    <button onclick="filterCategory('dansa')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">💃 Escola de dansa</button>
-                    <button onclick="filterCategory('osteopata')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🦴 Osteòpata</button>
-                    <button onclick="filterCategory('idiomes')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🗣️ Escola d'idiomes</button>
-                    <button onclick="filterCategory('escola_art')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🖌️ Escola d'art</button>
-                    <button onclick="filterCategory('autoescola')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🚗 Autoescola</button>
-                    <button onclick="filterCategory('gestoria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">📑 Gestoria</button>
-                    <button onclick="filterCategory('viatges')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">✈️ Viatges</button>
                     <button onclick="filterCategory('menjar_preparat')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍱 Menjar preparat</button>
+                    <button onclick="filterCategory('optica')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">👓 Òptica</button>
+                    <button onclick="filterCategory('papereria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">📚 Papereria</button>
+                    <button onclick="filterCategory('peixateria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🐟 Peixateria</button>
                     <button onclick="filterCategory('perruqueria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">✂️ Perruqueria i estètica</button>
-                    <button onclick="filterCategory('ferreteria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🔧 Ferreteria</button>
-                    <button onclick="filterCategory('fotografia')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">📸 Fotografia</button>
-                    <button onclick="filterCategory('assegurances')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛡️ Assegurances</button>
-                    <button onclick="filterCategory('bicicletes')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🚲 Bicicletes</button>
-                    <button onclick="filterCategory('herboristeria')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🌿 Herboristeria</button>
+                    <button onclick="filterCategory('restaurant')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🍽️ Restaurant</button>
                     <button onclick="filterCategory('roba')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">👔 Roba</button>
+                    <button onclick="filterCategory('supermercat')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🛒 Supermercat</button>
                     <button onclick="filterCategory('tabac')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🚬 Tabac</button>
+                    <button onclick="filterCategory('tatuatges')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">🎨 Tatuatges</button>
+                    <button onclick="filterCategory('viatges')" class="cat-btn bg-white text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg whitespace-nowrap hover:bg-gray-100 transition border border-gray-200">✈️ Viatges</button>
                 </div>
             </div>
         </div>
@@ -187,7 +186,7 @@
             return translated;
         }
 
-        // --- CATEGORITZACIÓ COMPLETA (38 CATEGORIES) ---
+        // --- CATEGORITZACIÓ COMPLETA ---
         function getCategoryDetails(props) {
             const amenity = props.amenity || '';
             const shop = props.shop || '';
@@ -195,44 +194,43 @@
             const craft = props.craft || '';
             const healthcare = props.healthcare || '';
 
-            if (['laundry', 'dry_cleaning'].includes(shop)) return { key: 'bugaderia', label: 'Bugaderia', icon: 'fa-soap', color: '#0284c7' };
-            if (['bakery', 'pastry'].includes(shop)) return { key: 'fleca', label: 'Fleca', icon: 'fa-bread-slice', color: '#b45309' };
-            if (shop === 'greengrocer') return { key: 'fruiteria', label: 'Fruiteria', icon: 'fa-apple-whole', color: '#16a34a' };
-            if (shop === 'butcher') return { key: 'carnisseria', label: 'Carnisseria', icon: 'fa-drumstick-bite', color: '#dc2626' };
-            if (shop === 'fishmonger') return { key: 'peixateria', label: 'Peixateria', icon: 'fa-fish', color: '#2563eb' };
-            if (['restaurant', 'food_court'].includes(amenity)) return { key: 'restaurant', label: 'Restaurant', icon: 'fa-utensils', color: '#dc2626' };
+            if (office === 'insurance') return { key: 'assegurances', label: 'Assegurances', icon: 'fa-shield-halved', color: '#2563eb' };
+            if (amenity === 'driving_school') return { key: 'autoescola', label: 'Autoescola', icon: 'fa-car', color: '#d97706' };
             if (['bar', 'pub', 'biergarten'].includes(amenity)) return { key: 'bar', label: 'Bar', icon: 'fa-beer-mug-empty', color: '#eab308' };
+            if (shop === 'bicycle') return { key: 'bicicletes', label: 'Bicicletes', icon: 'fa-bicycle', color: '#059669' };
+            if (['laundry', 'dry_cleaning'].includes(shop)) return { key: 'bugaderia', label: 'Bugaderia', icon: 'fa-soap', color: '#0284c7' };
             if (amenity === 'cafe') return { key: 'cafeteria', label: 'Cafeteria', icon: 'fa-mug-saucer', color: '#d97706' };
-            if (['school', 'kindergarten', 'college', 'university'].includes(amenity)) return { key: 'educacio', label: 'Educació', icon: 'fa-graduation-cap', color: '#4f46e5' };
-            if (amenity === 'pharmacy') return { key: 'farmacia', label: 'Farmàcia', icon: 'fa-prescription-bottle-medical', color: '#16a34a' };
+            if (shop === 'butcher') return { key: 'carnisseria', label: 'Carnisseria', icon: 'fa-drumstick-bite', color: '#dc2626' };
             if (['clinic', 'hospital', 'doctors', 'dentist'].includes(amenity)) return { key: 'clinica', label: 'Clínica', icon: 'fa-briefcase-medical', color: '#0284c7' };
-            if (shop === 'optician') return { key: 'optica', label: 'Òptica', icon: 'fa-glasses', color: '#0d9488' };
-            if (['pet', 'pet_grooming'].includes(shop) || amenity === 'veterinary') return { key: 'gossos', label: 'Gossos', icon: 'fa-dog', color: '#b45309' };
-            if (office === 'estate_agent' || shop === 'estate_agent') return { key: 'immobiliaria', label: 'Immobiliària', icon: 'fa-house-chimney', color: '#4f46e5' };
-            if (['stationery', 'books'].includes(shop)) return { key: 'papereria', label: 'Papereria', icon: 'fa-book-open', color: '#0284c7' };
-            if (['supermarket', 'convenience'].includes(shop)) return { key: 'supermercat', label: 'Supermercat', icon: 'fa-cart-shopping', color: '#0369a1' };
-            if (craft === 'carpenter' || shop === 'carpenter') return { key: 'fusteria', label: 'Fusteria', icon: 'fa-hammer', color: '#92400e' };
             if (['interior_decoration', 'furniture', 'houseware'].includes(shop)) return { key: 'decoracio', label: 'Decoració', icon: 'fa-couch', color: '#d97706' };
+            if (['school', 'kindergarten', 'college', 'university'].includes(amenity)) return { key: 'educacio', label: 'Educació', icon: 'fa-graduation-cap', color: '#4f46e5' };
+            if (amenity === 'art_school' || shop === 'art') return { key: 'escola_art', label: 'Escola d\'art', icon: 'fa-palette', color: '#9333ea' };
+            if (amenity === 'language_school') return { key: 'idiomes', label: 'Escola d\'idiomes', icon: 'fa-language', color: '#2563eb' };
+            if (amenity === 'dance_school' || shop === 'dance') return { key: 'dansa', label: 'Escola de dansa', icon: 'fa-child-reaching', color: '#db2777' };
+            if (amenity === 'pharmacy') return { key: 'farmacia', label: 'Farmàcia', icon: 'fa-prescription-bottle-medical', color: '#16a34a' };
+            if (['hardware', 'doityourself'].includes(shop)) return { key: 'ferreteria', label: 'Ferreteria', icon: 'fa-wrench', color: '#ea580c' };
+            if (['bakery', 'pastry'].includes(shop)) return { key: 'fleca', label: 'Fleca', icon: 'fa-bread-slice', color: '#b45309' };
+            if (shop === 'florist') return { key: 'floristeria', label: 'Floristeria', icon: 'fa-wheat-awn', color: '#059669' };
+            if (shop === 'photo') return { key: 'fotografia', label: 'Fotografia', icon: 'fa-camera', color: '#9333ea' };
+            if (shop === 'greengrocer') return { key: 'fruiteria', label: 'Fruiteria', icon: 'fa-apple-whole', color: '#16a34a' };
+            if (craft === 'carpenter' || shop === 'carpenter') return { key: 'fusteria', label: 'Fusteria', icon: 'fa-hammer', color: '#92400e' };
+            if (['accountant', 'tax_advisor', 'lawyer', 'administrative'].includes(office)) return { key: 'gestoria', label: 'Gestoria', icon: 'fa-file-signature', color: '#475569' };
+            if (['pet', 'pet_grooming'].includes(shop) || amenity === 'veterinary') return { key: 'gossos', label: 'Gossos', icon: 'fa-dog', color: '#b45309' };
+            if (['herbalist', 'alternative_medicine'].includes(shop)) return { key: 'herboristeria', label: 'Herboristeria', icon: 'fa-leaf', color: '#15803d' };
+            if (office === 'estate_agent' || shop === 'estate_agent') return { key: 'immobiliaria', label: 'Immobiliària', icon: 'fa-house-chimney', color: '#4f46e5' };
             if (shop === 'jewelry') return { key: 'joieria', label: 'Joieria', icon: 'fa-gem', color: '#e11d48' };
             if (shop === 'confectionery') return { key: 'llaminadures', label: 'Llaminadures', icon: 'fa-candy-cane', color: '#f43f5e' };
-            if (shop === 'florist') return { key: 'floristeria', label: 'Floristeria', icon: 'fa-wheat-awn', color: '#059669' };
-            if (shop === 'tattoo') return { key: 'tatuatges', label: 'Tatuatges', icon: 'fa-paintbrush', color: '#7c3aed' };
-            if (amenity === 'dance_school' || shop === 'dance') return { key: 'dansa', label: 'Escola de dansa', icon: 'fa-child-reaching', color: '#db2777' };
-            if (healthcare === 'osteopath' || amenity === 'osteopath') return { key: 'osteopata', label: 'Osteòpata', icon: 'fa-bone', color: '#0284c7' };
-            if (amenity === 'language_school') return { key: 'idiomes', label: 'Escola d\'idiomes', icon: 'fa-language', color: '#2563eb' };
-            if (amenity === 'art_school' || shop === 'art') return { key: 'escola_art', label: 'Escola d\'art', icon: 'fa-palette', color: '#9333ea' };
-            if (amenity === 'driving_school') return { key: 'autoescola', label: 'Autoescola', icon: 'fa-car', color: '#d97706' };
-            if (['accountant', 'tax_advisor', 'lawyer', 'administrative'].includes(office)) return { key: 'gestoria', label: 'Gestoria', icon: 'fa-file-signature', color: '#475569' };
-            if (shop === 'travel_agency') return { key: 'viatges', label: 'Viatges', icon: 'fa-plane', color: '#06b6d4' };
             if (['delicatessen', 'caterer'].includes(shop)) return { key: 'menjar_preparat', label: 'Menjar preparat', icon: 'fa-box-tissue', color: '#ca8a04' };
+            if (shop === 'optician') return { key: 'optica', label: 'Òptica', icon: 'fa-glasses', color: '#0d9488' };
+            if (['stationery', 'books'].includes(shop)) return { key: 'papereria', label: 'Papereria', icon: 'fa-book-open', color: '#0284c7' };
+            if (shop === 'fishmonger') return { key: 'peixateria', label: 'Peixateria', icon: 'fa-fish', color: '#2563eb' };
             if (['hairdresser', 'beauty', 'cosmetics'].includes(shop)) return { key: 'perruqueria', label: 'Perruqueria i estètica', icon: 'fa-scissors', color: '#ec4899' };
-            if (['hardware', 'doityourself'].includes(shop)) return { key: 'ferreteria', label: 'Ferreteria', icon: 'fa-wrench', color: '#ea580c' };
-            if (shop === 'photo') return { key: 'fotografia', label: 'Fotografia', icon: 'fa-camera', color: '#9333ea' };
-            if (office === 'insurance') return { key: 'assegurances', label: 'Assegurances', icon: 'fa-shield-halved', color: '#2563eb' };
-            if (shop === 'bicycle') return { key: 'bicicletes', label: 'Bicicletes', icon: 'fa-bicycle', color: '#059669' };
-            if (['herbalist', 'alternative_medicine'].includes(shop)) return { key: 'herboristeria', label: 'Herboristeria', icon: 'fa-leaf', color: '#15803d' };
+            if (['restaurant', 'food_court'].includes(amenity)) return { key: 'restaurant', label: 'Restaurant', icon: 'fa-utensils', color: '#dc2626' };
             if (['clothes', 'fashion', 'boutique', 'shoes'].includes(shop)) return { key: 'roba', label: 'Roba', icon: 'fa-shirt', color: '#8b5cf6' };
+            if (['supermarket', 'convenience'].includes(shop)) return { key: 'supermercat', label: 'Supermercat', icon: 'fa-cart-shopping', color: '#0369a1' };
             if (shop === 'tobacco') return { key: 'tabac', label: 'Tabac', icon: 'fa-smoking', color: '#64748b' };
+            if (shop === 'tattoo') return { key: 'tatuatges', label: 'Tatuatges', icon: 'fa-paintbrush', color: '#7c3aed' };
+            if (shop === 'travel_agency') return { key: 'viatges', label: 'Viatges', icon: 'fa-plane', color: '#06b6d4' };
 
             return { key: 'altres', label: 'Altres', icon: 'fa-location-dot', color: '#6b7280' };
         }
