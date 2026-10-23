@@ -226,7 +226,8 @@
             if (['delicatessen', 'caterer'].includes(shop)) return { key: 'menjar_preparat', label: 'Menjar preparat', icon: 'fa-box-tissue', color: '#ca8a04' };
             if (shop === 'optician') return { key: 'optica', label: 'Òptica', icon: 'fa-glasses', color: '#0d9488' };
             if (['stationery', 'books'].includes(shop)) return { key: 'papereria', label: 'Papereria', icon: 'fa-book-open', color: '#0284c7' };
-            if (shop === 'fishmonger') return { key: 'peixateria', label: 'Peixateria', icon: 'fa-fish', color: '#2563eb' };
+            if (['fishmonger', 'seafood'].includes(shop) || amenity === 'seafood') {return { key: 'peixateria', label: 'Peixateria', icon: 'fa-fish', color: '#2563eb' };
+}
             if (['hairdresser', 'beauty', 'cosmetics'].includes(shop)) return { key: 'perruqueria', label: 'Perruqueria i estètica', icon: 'fa-scissors', color: '#ec4899' };
             if (['restaurant', 'food_court'].includes(amenity)) return { key: 'restaurant', label: 'Restaurant', icon: 'fa-utensils', color: '#dc2626' };
             if (['clothes', 'fashion', 'boutique', 'shoes'].includes(shop)) return { key: 'roba', label: 'Roba', icon: 'fa-shirt', color: '#8b5cf6' };
