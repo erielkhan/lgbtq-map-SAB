@@ -183,63 +183,42 @@
                 "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "4",
                 "addr:postcode": "08740",
-                "addr:street": "Via de l'Esport",
-                "entrance": "main"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    1.97109480000,
-                    41.44977930000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
                 "addr:street": "Avinguda Constitució",
-                "addr:unit": "55-56",
-                "butcher": "poultry",
+                "addr:unit": "15-16",
                 "indoor": "shop",
                 "indoor:level": "0",
                 "level": "0",
                 "lgbtq": "welcome",
                 "lgbtq:signed": "yes",
                 "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "La Granja",
-                "phone": "+34 936 62 30 74",
-                "shop": "butcher"
+                "name": "Peixateria Navarro",
+                "opening_hours": "Tu-Sa 08:00-14:00",
+                "phone": "+34 667 564 931",
+                "shop": "seafood"
             },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1.96912780000,
-                            41.44909720000
+                            1.96883080000,
+                            41.44894600000
                         ],
                         [
-                            1.96910080000,
-                            41.44907570000
+                            1.96890250000,
+                            41.44900280000
                         ],
                         [
-                            1.96907360000,
-                            41.44905360000
+                            1.96886210000,
+                            41.44902990000
                         ],
                         [
-                            1.96909450000,
-                            41.44903930000
+                            1.96879150000,
+                            41.44897390000
                         ],
                         [
-                            1.96914820000,
-                            41.44908330000
-                        ],
-                        [
-                            1.96912780000,
-                            41.44909720000
+                            1.96883080000,
+                            41.44894600000
                         ]
                     ]
                 ]
@@ -390,94 +369,56 @@
                 "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "4",
                 "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "31-34",
-                "email": "carnsvega@hotmail.com",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
+                "addr:street": "Via de l'Esport",
+                "amenity": "ice_cream",
+                "brand": "Jijonenca",
+                "brand:website": "https://www.jijonenca.es",
+                "brand:wikidata": "Q109332228",
+                "dog": "outside",
                 "lgbtq": "welcome",
                 "lgbtq:signed": "yes",
                 "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Vega by Jeni",
-                "opening_hours": "Mo-Sa 08:00-14:00; Tu 08:00-14:00,17:00-20:00; Fr 08:00-20:00",
-                "phone": "+34 93 653 31 05",
-                "shop": "butcher"
+                "name": "Jijonenca"
             },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1.96893520000,
-                            41.44885200000
+                            1.96953470000,
+                            41.44895470000
                         ],
                         [
-                            1.96897720000,
-                            41.44882290000
+                            1.96958610000,
+                            41.44899660000
                         ],
                         [
-                            1.96903230000,
-                            41.44886760000
+                            1.96946090000,
+                            41.44908270000
                         ],
                         [
-                            1.96901160000,
-                            41.44888190000
+                            1.96943480000,
+                            41.44910070000
                         ],
                         [
-                            1.96899030000,
-                            41.44889670000
+                            1.96936870000,
+                            41.44904680000
                         ],
                         [
-                            1.96893520000,
-                            41.44885200000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "15-16",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Peixateria Navarro",
-                "opening_hours": "Tu-Sa 08:00-14:00",
-                "phone": "+34 667 564 931",
-                "shop": "seafood"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96883080000,
-                            41.44894600000
+                            1.96937950000,
+                            41.44903940000
                         ],
                         [
-                            1.96890250000,
-                            41.44900280000
+                            1.96941540000,
+                            41.44901470000
                         ],
                         [
-                            1.96886210000,
-                            41.44902990000
+                            1.96943010000,
+                            41.44902660000
                         ],
                         [
-                            1.96879150000,
-                            41.44897390000
-                        ],
-                        [
-                            1.96883080000,
-                            41.44894600000
+                            1.96953470000,
+                            41.44895470000
                         ]
                     ]
                 ]
@@ -557,52 +498,6 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "18",
-                "butcher": "poultry",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Polleria y hueveria Pili",
-                "shop": "butcher"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96882790000,
-                            41.44882720000
-                        ],
-                        [
-                            1.96886180000,
-                            41.44885410000
-                        ],
-                        [
-                            1.96883550000,
-                            41.44887270000
-                        ],
-                        [
-                            1.96880160000,
-                            41.44884580000
-                        ],
-                        [
-                            1.96882790000,
-                            41.44882720000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "10",
                 "addr:postcode": "08740",
                 "addr:street": "Parc Vall del Palau",
@@ -618,6 +513,61 @@
                 "coordinates": [
                     1.95874580000,
                     41.45489040000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "35-36",
+                "email": "frutasfernandez57@gmail.com",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Frutas y verduras Fernández",
+                "phone": "+34 685488323",
+                "shop": "greengrocer"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96906610000,
+                            41.44892680000
+                        ],
+                        [
+                            1.96904520000,
+                            41.44894130000
+                        ],
+                        [
+                            1.96902010000,
+                            41.44892100000
+                        ],
+                        [
+                            1.96899030000,
+                            41.44889670000
+                        ],
+                        [
+                            1.96901160000,
+                            41.44888190000
+                        ],
+                        [
+                            1.96904140000,
+                            41.44890640000
+                        ],
+                        [
+                            1.96906610000,
+                            41.44892680000
+                        ]
+                    ]
                 ]
             }
         },
@@ -975,67 +925,6 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Via de l'Esport",
-                "amenity": "ice_cream",
-                "brand": "Jijonenca",
-                "brand:website": "https://www.jijonenca.es",
-                "brand:wikidata": "Q109332228",
-                "dog": "outside",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Jijonenca"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96953470000,
-                            41.44895470000
-                        ],
-                        [
-                            1.96958610000,
-                            41.44899660000
-                        ],
-                        [
-                            1.96946090000,
-                            41.44908270000
-                        ],
-                        [
-                            1.96943480000,
-                            41.44910070000
-                        ],
-                        [
-                            1.96936870000,
-                            41.44904680000
-                        ],
-                        [
-                            1.96937950000,
-                            41.44903940000
-                        ],
-                        [
-                            1.96941540000,
-                            41.44901470000
-                        ],
-                        [
-                            1.96943010000,
-                            41.44902660000
-                        ],
-                        [
-                            1.96953470000,
-                            41.44895470000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "20",
                 "addr:postcode": "08740",
                 "addr:street": "Via de l'Esport",
@@ -1132,19 +1021,6 @@
         {
             "type": "Feature",
             "properties": {
-                "entrance": "yes"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    1.97087360000,
-                    41.44999530000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "1",
                 "addr:postcode": "08740",
@@ -1211,6 +1087,50 @@
                 "coordinates": [
                     1.96947970000,
                     41.44794430000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "66",
+                "email": "frederic@modahomegarcia.com",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Pesca Salada Lolita",
+                "phone": "+34 660 41 08 79",
+                "shop": "deli"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96918290000,
+                            41.44901990000
+                        ],
+                        [
+                            1.96915550000,
+                            41.44899800000
+                        ],
+                        [
+                            1.96917650000,
+                            41.44898240000
+                        ],
+                        [
+                            1.96920460000,
+                            41.44900430000
+                        ],
+                        [
+                            1.96918290000,
+                            41.44901990000
+                        ]
+                    ]
                 ]
             }
         },
@@ -1291,59 +1211,6 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "40;45-46",
-                "contact:facebook": "https://www.facebook.com/aliciaXF",
-                "contact:instagram": "aliciaxarcutersformatgers",
-                "contact:twitter": "aliciaxarcuters",
-                "email": "info@aliciaxarcuters.com",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Alicia Xarcuters i Formatgers",
-                "name:ca": "Alicia Xarcuters i Formatgers",
-                "opening_hours": "Mo 08:00-14:00; Tu 17:00-20:00; We-Th 08:00-14:00; Fr 08:00-20:00; Sa 08:00-14:00",
-                "phone": "+34 936 53 22 04",
-                "phone:mobile": "+34 634 546 022",
-                "shop": "butcher"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96891050000,
-                            41.44895460000
-                        ],
-                        [
-                            1.96888220000,
-                            41.44893220000
-                        ],
-                        [
-                            1.96892350000,
-                            41.44890320000
-                        ],
-                        [
-                            1.96895170000,
-                            41.44892570000
-                        ],
-                        [
-                            1.96891050000,
-                            41.44895460000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "5",
                 "addr:postcode": "08740",
                 "addr:street": "Carrer de l'Onze de Març",
@@ -1415,141 +1282,6 @@
                 "coordinates": [
                     1.97638050000,
                     41.44805150000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "3;4",
-                "beauty": "nails",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Blu Nails",
-                "phone": "+34 620 201 146",
-                "shop": "beauty"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96934380000,
-                            41.44906580000
-                        ],
-                        [
-                            1.96938360000,
-                            41.44909770000
-                        ],
-                        [
-                            1.96936200000,
-                            41.44911250000
-                        ],
-                        [
-                            1.96930760000,
-                            41.44914960000
-                        ],
-                        [
-                            1.96926870000,
-                            41.44911830000
-                        ],
-                        [
-                            1.96930970000,
-                            41.44908960000
-                        ],
-                        [
-                            1.96934380000,
-                            41.44906580000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "23",
-                "brand": "La Sirena",
-                "brand:wikidata": "Q21034458",
-                "dog": "no",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "La Sirena",
-                "shop": "frozen_food"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96922000000,
-                            41.44885490000
-                        ],
-                        [
-                            1.96918220000,
-                            41.44888160000
-                        ],
-                        [
-                            1.96915580000,
-                            41.44886030000
-                        ],
-                        [
-                            1.96913190000,
-                            41.44884040000
-                        ],
-                        [
-                            1.96908660000,
-                            41.44880280000
-                        ],
-                        [
-                            1.96904950000,
-                            41.44882790000
-                        ],
-                        [
-                            1.96901670000,
-                            41.44880340000
-                        ],
-                        [
-                            1.96905170000,
-                            41.44877950000
-                        ],
-                        [
-                            1.96901340000,
-                            41.44874800000
-                        ],
-                        [
-                            1.96897840000,
-                            41.44877190000
-                        ],
-                        [
-                            1.96891020000,
-                            41.44871680000
-                        ],
-                        [
-                            1.96898770000,
-                            41.44866200000
-                        ],
-                        [
-                            1.96922000000,
-                            41.44885490000
-                        ]
-                    ]
                 ]
             }
         },
@@ -1787,6 +1519,61 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "3;4",
+                "beauty": "nails",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Blu Nails",
+                "phone": "+34 620 201 146",
+                "shop": "beauty"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96934380000,
+                            41.44906580000
+                        ],
+                        [
+                            1.96938360000,
+                            41.44909770000
+                        ],
+                        [
+                            1.96936200000,
+                            41.44911250000
+                        ],
+                        [
+                            1.96930760000,
+                            41.44914960000
+                        ],
+                        [
+                            1.96926870000,
+                            41.44911830000
+                        ],
+                        [
+                            1.96930970000,
+                            41.44908960000
+                        ],
+                        [
+                            1.96934380000,
+                            41.44906580000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "3",
                 "addr:postcode": "08740",
                 "addr:street": "Avinguda Guatemala",
@@ -1853,6 +1640,54 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "67",
+                "butcher": "poultry",
+                "email": "maribel.1961@hotmail.com",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Polleria Maribel",
+                "phone": "+34 646 24 75 28",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96912150000,
+                            41.44897060000
+                        ],
+                        [
+                            1.96914240000,
+                            41.44895530000
+                        ],
+                        [
+                            1.96917650000,
+                            41.44898240000
+                        ],
+                        [
+                            1.96915550000,
+                            41.44899800000
+                        ],
+                        [
+                            1.96912150000,
+                            41.44897060000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:full": "carrer Rector Juanico, 35, portal 2",
                 "addr:housenumber": "35",
                 "addr:postcode": "08740",
@@ -1878,128 +1713,6 @@
                 "coordinates": [
                     1.97723550000,
                     41.44609930000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Via de l'Esport",
-                "air_conditioning": "yes",
-                "brand": "Catalonia Hotels",
-                "building": "hotel",
-                "check_date": "2024-05-15",
-                "dog": "yes",
-                "email": "booking@cataloniahotels.com",
-                "internet_access": "wlan",
-                "internet_access:fee": "customers",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Hotel Bristol",
-                "name:ca": "Hotel Bristol",
-                "opening_hours": "24/7",
-                "payment:cash": "yes",
-                "payment:credit_cards": "yes",
-                "payment:debit_cards": "yes",
-                "phone": "+34 93 236 00 59",
-                "swimming_pool": "outdoor",
-                "tourism": "hotel",
-                "website": "https://www.cataloniahotels.com/ca/hotel/catalonia-bristol",
-                "wheelchair": "yes"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.97091780000,
-                            41.45002180000
-                        ],
-                        [
-                            1.97087360000,
-                            41.44999530000
-                        ],
-                        [
-                            1.97083170000,
-                            41.44997010000
-                        ],
-                        [
-                            1.97086320000,
-                            41.44994030000
-                        ],
-                        [
-                            1.97083180000,
-                            41.44991980000
-                        ],
-                        [
-                            1.97086610000,
-                            41.44988800000
-                        ],
-                        [
-                            1.97096050000,
-                            41.44980090000
-                        ],
-                        [
-                            1.97099440000,
-                            41.44976950000
-                        ],
-                        [
-                            1.97102620000,
-                            41.44978890000
-                        ],
-                        [
-                            1.97105970000,
-                            41.44975780000
-                        ],
-                        [
-                            1.97109480000,
-                            41.44977930000
-                        ],
-                        [
-                            1.97114550000,
-                            41.44981030000
-                        ],
-                        [
-                            1.97110030000,
-                            41.44985200000
-                        ],
-                        [
-                            1.97109220000,
-                            41.44984700000
-                        ],
-                        [
-                            1.97104240000,
-                            41.44989280000
-                        ],
-                        [
-                            1.97103670000,
-                            41.44988930000
-                        ],
-                        [
-                            1.97099690000,
-                            41.44992610000
-                        ],
-                        [
-                            1.97100300000,
-                            41.44992970000
-                        ],
-                        [
-                            1.97095390000,
-                            41.44997560000
-                        ],
-                        [
-                            1.97096180000,
-                            41.44998030000
-                        ],
-                        [
-                            1.97091780000,
-                            41.45002180000
-                        ]
-                    ]
                 ]
             }
         },
@@ -2164,100 +1877,74 @@
                 "addr:housenumber": "4",
                 "addr:postcode": "08740",
                 "addr:street": "Avinguda Constitució",
-                "addr:unit": "35-36",
-                "email": "frutasfernandez57@gmail.com",
+                "addr:unit": "23",
+                "brand": "La Sirena",
+                "brand:wikidata": "Q21034458",
+                "dog": "no",
                 "indoor": "shop",
                 "indoor:level": "0",
                 "level": "0",
                 "lgbtq": "welcome",
                 "lgbtq:signed": "yes",
                 "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Frutas y verduras Fernández",
-                "phone": "+34 685488323",
-                "shop": "greengrocer"
+                "name": "La Sirena",
+                "shop": "frozen_food"
             },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1.96906610000,
-                            41.44892680000
+                            1.96922000000,
+                            41.44885490000
                         ],
                         [
-                            1.96904520000,
-                            41.44894130000
+                            1.96918220000,
+                            41.44888160000
                         ],
                         [
-                            1.96902010000,
-                            41.44892100000
+                            1.96915580000,
+                            41.44886030000
                         ],
                         [
-                            1.96899030000,
-                            41.44889670000
+                            1.96913190000,
+                            41.44884040000
                         ],
                         [
-                            1.96901160000,
-                            41.44888190000
+                            1.96908660000,
+                            41.44880280000
                         ],
                         [
-                            1.96904140000,
-                            41.44890640000
+                            1.96904950000,
+                            41.44882790000
                         ],
                         [
-                            1.96906610000,
-                            41.44892680000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "38-39",
-                "butcher": "poultry",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Polleria Charo",
-                "phone": "+34 936 53 42 68",
-                "shop": "butcher"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96896000000,
-                            41.44896240000
+                            1.96901670000,
+                            41.44880340000
                         ],
                         [
-                            1.96898270000,
-                            41.44898080000
+                            1.96905170000,
+                            41.44877950000
                         ],
                         [
-                            1.96900990000,
-                            41.44900270000
+                            1.96901340000,
+                            41.44874800000
                         ],
                         [
-                            1.96903030000,
-                            41.44898830000
+                            1.96897840000,
+                            41.44877190000
                         ],
                         [
-                            1.96898020000,
-                            41.44894840000
+                            1.96891020000,
+                            41.44871680000
                         ],
                         [
-                            1.96896000000,
-                            41.44896240000
+                            1.96898770000,
+                            41.44866200000
+                        ],
+                        [
+                            1.96922000000,
+                            41.44885490000
                         ]
                     ]
                 ]
@@ -2399,51 +2086,6 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "51-52",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "La Bona Fruita",
-                "shop": "greengrocer"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96916230000,
-                            41.44915940000
-                        ],
-                        [
-                            1.96910560000,
-                            41.44911290000
-                        ],
-                        [
-                            1.96912780000,
-                            41.44909720000
-                        ],
-                        [
-                            1.96918420000,
-                            41.44914440000
-                        ],
-                        [
-                            1.96916230000,
-                            41.44915940000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "2",
                 "addr:postcode": "08740",
                 "addr:street": "Carretera de Martorell",
@@ -2496,54 +2138,6 @@
                 "coordinates": [
                     1.96543230000,
                     41.45226910000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "67",
-                "butcher": "poultry",
-                "email": "maribel.1961@hotmail.com",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Polleria Maribel",
-                "phone": "+34 646 24 75 28",
-                "shop": "butcher"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96912150000,
-                            41.44897060000
-                        ],
-                        [
-                            1.96914240000,
-                            41.44895530000
-                        ],
-                        [
-                            1.96917650000,
-                            41.44898240000
-                        ],
-                        [
-                            1.96915550000,
-                            41.44899800000
-                        ],
-                        [
-                            1.96912150000,
-                            41.44897060000
-                        ]
-                    ]
                 ]
             }
         },
@@ -2604,24 +2198,26 @@
                 "addr:housenumber": "4",
                 "addr:postcode": "08740",
                 "addr:street": "Avinguda Constitució",
-                "indoor": "shop",
+                "addr:unit": "21",
+                "building": "yes",
+                "food": "prepared_meals",
                 "indoor:level": "0",
                 "level": "0",
                 "lgbtq": "welcome",
                 "lgbtq:signed": "yes",
                 "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "lottery": "yes",
-                "name": "Papereria Martín",
-                "name:ca": "Papereria Martín",
-                "shop": "stationery"
+                "name": "Market Diner",
+                "opening_hours": "Mo-Sa 08:30-15:00",
+                "phone": "+34 93 682 33 31",
+                "shop": "deli"
             },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1.96883630000,
-                            41.44876880000
+                            1.96890350000,
+                            41.44882280000
                         ],
                         [
                             1.96887020000,
@@ -2632,12 +2228,16 @@
                             41.44874500000
                         ],
                         [
-                            1.96891020000,
-                            41.44871680000
+                            1.96897840000,
+                            41.44877190000
                         ],
                         [
-                            1.96883630000,
-                            41.44876880000
+                            1.96894340000,
+                            41.44879570000
+                        ],
+                        [
+                            1.96890350000,
+                            41.44882280000
                         ]
                     ]
                 ]
@@ -2811,6 +2411,51 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "51-52",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "La Bona Fruita",
+                "shop": "greengrocer"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96916230000,
+                            41.44915940000
+                        ],
+                        [
+                            1.96910560000,
+                            41.44911290000
+                        ],
+                        [
+                            1.96912780000,
+                            41.44909720000
+                        ],
+                        [
+                            1.96918420000,
+                            41.44914440000
+                        ],
+                        [
+                            1.96916230000,
+                            41.44915940000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "18",
                 "addr:postcode": "08740",
                 "addr:street": "Carrer de la Font",
@@ -2942,6 +2587,59 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "40;45-46",
+                "contact:facebook": "https://www.facebook.com/aliciaXF",
+                "contact:instagram": "aliciaxarcutersformatgers",
+                "contact:twitter": "aliciaxarcuters",
+                "email": "info@aliciaxarcuters.com",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Alicia Xarcuters i Formatgers",
+                "name:ca": "Alicia Xarcuters i Formatgers",
+                "opening_hours": "Mo 08:00-14:00; Tu 17:00-20:00; We-Th 08:00-14:00; Fr 08:00-20:00; Sa 08:00-14:00",
+                "phone": "+34 936 53 22 04",
+                "phone:mobile": "+34 634 546 022",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96891050000,
+                            41.44895460000
+                        ],
+                        [
+                            1.96888220000,
+                            41.44893220000
+                        ],
+                        [
+                            1.96892350000,
+                            41.44890320000
+                        ],
+                        [
+                            1.96895170000,
+                            41.44892570000
+                        ],
+                        [
+                            1.96891050000,
+                            41.44895460000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "31",
                 "addr:postcode": "08740",
                 "addr:street": "Avinguda Guatemala",
@@ -2980,6 +2678,57 @@
                 "coordinates": [
                     1.97342190000,
                     41.45108090000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "38-39",
+                "butcher": "poultry",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Polleria Charo",
+                "phone": "+34 936 53 42 68",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96896000000,
+                            41.44896240000
+                        ],
+                        [
+                            1.96898270000,
+                            41.44898080000
+                        ],
+                        [
+                            1.96900990000,
+                            41.44900270000
+                        ],
+                        [
+                            1.96903030000,
+                            41.44898830000
+                        ],
+                        [
+                            1.96898020000,
+                            41.44894840000
+                        ],
+                        [
+                            1.96896000000,
+                            41.44896240000
+                        ]
+                    ]
                 ]
             }
         },
@@ -3034,58 +2783,6 @@
                 "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "4",
                 "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "21",
-                "building": "yes",
-                "food": "prepared_meals",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Market Diner",
-                "opening_hours": "Mo-Sa 08:30-15:00",
-                "phone": "+34 93 682 33 31",
-                "shop": "deli"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96890350000,
-                            41.44882280000
-                        ],
-                        [
-                            1.96887020000,
-                            41.44879700000
-                        ],
-                        [
-                            1.96894490000,
-                            41.44874500000
-                        ],
-                        [
-                            1.96897840000,
-                            41.44877190000
-                        ],
-                        [
-                            1.96894340000,
-                            41.44879570000
-                        ],
-                        [
-                            1.96890350000,
-                            41.44882280000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
                 "addr:street": "Parc Vall del Palau",
                 "addr:unit": "6",
                 "amenity": "arts_centre",
@@ -3111,44 +2808,40 @@
                 "addr:housenumber": "4",
                 "addr:postcode": "08740",
                 "addr:street": "Avinguda Constitució",
-                "addr:unit": "46-47",
                 "indoor": "shop",
                 "indoor:level": "0",
                 "level": "0",
                 "lgbtq": "welcome",
                 "lgbtq:signed": "yes",
                 "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Felguera & Hijos Frutas y Verduras",
-                "phone": "+34 616 87 92 22",
-                "shop": "greengrocer"
+                "lottery": "yes",
+                "name": "Papereria Martín",
+                "name:ca": "Papereria Martín",
+                "shop": "stationery"
             },
             "geometry": {
                 "type": "Polygon",
                 "coordinates": [
                     [
                         [
-                            1.96900990000,
-                            41.44900270000
+                            1.96883630000,
+                            41.44876880000
                         ],
                         [
-                            1.96898910000,
-                            41.44901730000
+                            1.96887020000,
+                            41.44879700000
                         ],
                         [
-                            1.96893860000,
-                            41.44897710000
+                            1.96894490000,
+                            41.44874500000
                         ],
                         [
-                            1.96896000000,
-                            41.44896240000
+                            1.96891020000,
+                            41.44871680000
                         ],
                         [
-                            1.96898270000,
-                            41.44898080000
-                        ],
-                        [
-                            1.96900990000,
-                            41.44900270000
+                            1.96883630000,
+                            41.44876880000
                         ]
                     ]
                 ]
@@ -3317,6 +3010,171 @@
                 "coordinates": [
                     1.97393940000,
                     41.44747240000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "55-56",
+                "butcher": "poultry",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "La Granja",
+                "phone": "+34 936 62 30 74",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96912780000,
+                            41.44909720000
+                        ],
+                        [
+                            1.96910080000,
+                            41.44907570000
+                        ],
+                        [
+                            1.96907360000,
+                            41.44905360000
+                        ],
+                        [
+                            1.96909450000,
+                            41.44903930000
+                        ],
+                        [
+                            1.96914820000,
+                            41.44908330000
+                        ],
+                        [
+                            1.96912780000,
+                            41.44909720000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Via de l'Esport",
+                "air_conditioning": "yes",
+                "brand": "Catalonia Hotels",
+                "building": "hotel",
+                "check_date": "2024-05-15",
+                "dog": "yes",
+                "email": "booking@cataloniahotels.com",
+                "internet_access": "wlan",
+                "internet_access:fee": "customers",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Hotel Bristol",
+                "name:ca": "Hotel Bristol",
+                "opening_hours": "24/7",
+                "payment:cash": "yes",
+                "payment:credit_cards": "yes",
+                "payment:debit_cards": "yes",
+                "phone": "+34 93 236 00 59",
+                "swimming_pool": "outdoor",
+                "tourism": "hotel",
+                "website": "https://www.cataloniahotels.com/ca/hotel/catalonia-bristol",
+                "wheelchair": "yes"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.97091780000,
+                            41.45002180000
+                        ],
+                        [
+                            1.97083170000,
+                            41.44997010000
+                        ],
+                        [
+                            1.97086320000,
+                            41.44994030000
+                        ],
+                        [
+                            1.97083180000,
+                            41.44991980000
+                        ],
+                        [
+                            1.97086610000,
+                            41.44988800000
+                        ],
+                        [
+                            1.97096050000,
+                            41.44980090000
+                        ],
+                        [
+                            1.97099440000,
+                            41.44976950000
+                        ],
+                        [
+                            1.97102620000,
+                            41.44978890000
+                        ],
+                        [
+                            1.97105970000,
+                            41.44975780000
+                        ],
+                        [
+                            1.97114550000,
+                            41.44981030000
+                        ],
+                        [
+                            1.97110030000,
+                            41.44985200000
+                        ],
+                        [
+                            1.97109220000,
+                            41.44984700000
+                        ],
+                        [
+                            1.97104240000,
+                            41.44989280000
+                        ],
+                        [
+                            1.97103670000,
+                            41.44988930000
+                        ],
+                        [
+                            1.97099690000,
+                            41.44992610000
+                        ],
+                        [
+                            1.97100300000,
+                            41.44992970000
+                        ],
+                        [
+                            1.97095390000,
+                            41.44997560000
+                        ],
+                        [
+                            1.97096180000,
+                            41.44998030000
+                        ],
+                        [
+                            1.97091780000,
+                            41.45002180000
+                        ]
+                    ]
                 ]
             }
         },
@@ -3621,6 +3479,56 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "46-47",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Felguera & Hijos Frutas y Verduras",
+                "phone": "+34 616 87 92 22",
+                "shop": "greengrocer"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96900990000,
+                            41.44900270000
+                        ],
+                        [
+                            1.96898910000,
+                            41.44901730000
+                        ],
+                        [
+                            1.96893860000,
+                            41.44897710000
+                        ],
+                        [
+                            1.96896000000,
+                            41.44896240000
+                        ],
+                        [
+                            1.96898270000,
+                            41.44898080000
+                        ],
+                        [
+                            1.96900990000,
+                            41.44900270000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "21",
                 "addr:postcode": "08740",
                 "addr:street": "Carrer de Catalunya",
@@ -3686,6 +3594,52 @@
                 "coordinates": [
                     1.97443110000,
                     41.44725050000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "18",
+                "butcher": "poultry",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Polleria y hueveria Pili",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96882790000,
+                            41.44882720000
+                        ],
+                        [
+                            1.96886180000,
+                            41.44885410000
+                        ],
+                        [
+                            1.96883550000,
+                            41.44887270000
+                        ],
+                        [
+                            1.96880160000,
+                            41.44884580000
+                        ],
+                        [
+                            1.96882790000,
+                            41.44882720000
+                        ]
+                    ]
                 ]
             }
         },
@@ -3924,6 +3878,100 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "indoor": "shop",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Estanc nº3",
+                "opening_hours": "Mo-Fr 09:00-13:30; Mo-Fr 16:30-20:00; Sa 09:00-14:00",
+                "phone": "+34 93 653 27 31",
+                "shop": "tobacco"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96879300000,
+                            41.44879940000
+                        ],
+                        [
+                            1.96882790000,
+                            41.44882720000
+                        ],
+                        [
+                            1.96880160000,
+                            41.44884580000
+                        ],
+                        [
+                            1.96877460000,
+                            41.44886490000
+                        ],
+                        [
+                            1.96873960000,
+                            41.44883760000
+                        ],
+                        [
+                            1.96879300000,
+                            41.44879940000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "12-14",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Peixateria Aurora",
+                "shop": "seafood"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96890250000,
+                            41.44900280000
+                        ],
+                        [
+                            1.96898090000,
+                            41.44906490000
+                        ],
+                        [
+                            1.96894160000,
+                            41.44909280000
+                        ],
+                        [
+                            1.96886210000,
+                            41.44902990000
+                        ],
+                        [
+                            1.96890250000,
+                            41.44900280000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "11",
                 "addr:postcode": "08740",
                 "addr:street": "Avinguda Guatemala",
@@ -4111,51 +4159,6 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "12-14",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Peixateria Aurora",
-                "shop": "seafood"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96890250000,
-                            41.44900280000
-                        ],
-                        [
-                            1.96898090000,
-                            41.44906490000
-                        ],
-                        [
-                            1.96894160000,
-                            41.44909280000
-                        ],
-                        [
-                            1.96886210000,
-                            41.44902990000
-                        ],
-                        [
-                            1.96890250000,
-                            41.44900280000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "9",
                 "addr:postcode": "08740",
                 "addr:street": "Plaça de Catalunya",
@@ -4170,61 +4173,6 @@
                 "coordinates": [
                     1.97004210000,
                     41.44790160000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "41-42-43",
-                "alt_name": "Quality",
-                "email": "qualityxarcu@gmail.com",
-                "indoor": "shop",
-                "indoor:level": "0",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "mobile": "+34 656 372 756",
-                "name": "Ca'l Ton",
-                "note": "Amb tu des de 1843",
-                "opening_hours": "Mo-Th 07:30-14:00; Fr 07:00-20:00; Sa 07:00-15:00",
-                "phone": "+34 936 53 34 19",
-                "shop": "butcher"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96885410000,
-                            41.44890970000
-                        ],
-                        [
-                            1.96885980000,
-                            41.44890570000
-                        ],
-                        [
-                            1.96889520000,
-                            41.44888070000
-                        ],
-                        [
-                            1.96892350000,
-                            41.44890320000
-                        ],
-                        [
-                            1.96888220000,
-                            41.44893220000
-                        ],
-                        [
-                            1.96885410000,
-                            41.44890970000
-                        ]
-                    ]
                 ]
             }
         },
@@ -4351,55 +4299,6 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "indoor": "shop",
-                "level": "0",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Estanc nº3",
-                "opening_hours": "Mo-Fr 09:00-13:30; Mo-Fr 16:30-20:00; Sa 09:00-14:00",
-                "phone": "+34 93 653 27 31",
-                "shop": "tobacco"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96879300000,
-                            41.44879940000
-                        ],
-                        [
-                            1.96882790000,
-                            41.44882720000
-                        ],
-                        [
-                            1.96880160000,
-                            41.44884580000
-                        ],
-                        [
-                            1.96877460000,
-                            41.44886490000
-                        ],
-                        [
-                            1.96873960000,
-                            41.44883760000
-                        ],
-                        [
-                            1.96879300000,
-                            41.44879940000
-                        ]
-                    ]
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "1",
                 "addr:postcode": "08740",
                 "addr:street": "Parc Vall del Palau",
@@ -4468,50 +4367,6 @@
                 "coordinates": [
                     1.96688790000,
                     41.45172370000
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "addr:city": "Sant Andreu de la Barca",
-                "addr:housenumber": "4",
-                "addr:postcode": "08740",
-                "addr:street": "Avinguda Constitució",
-                "addr:unit": "66",
-                "email": "frederic@modahomegarcia.com",
-                "lgbtq": "welcome",
-                "lgbtq:signed": "yes",
-                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
-                "name": "Pesca Salada Lolita",
-                "phone": "+34 660 41 08 79",
-                "shop": "deli"
-            },
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1.96918290000,
-                            41.44901990000
-                        ],
-                        [
-                            1.96915550000,
-                            41.44899800000
-                        ],
-                        [
-                            1.96917650000,
-                            41.44898240000
-                        ],
-                        [
-                            1.96920460000,
-                            41.44900430000
-                        ],
-                        [
-                            1.96918290000,
-                            41.44901990000
-                        ]
-                    ]
                 ]
             }
         },
@@ -4613,6 +4468,61 @@
             "type": "Feature",
             "properties": {
                 "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "41-42-43",
+                "alt_name": "Quality",
+                "email": "qualityxarcu@gmail.com",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "mobile": "+34 656 372 756",
+                "name": "Ca'l Ton",
+                "note": "Amb tu des de 1843",
+                "opening_hours": "Mo-Th 07:30-14:00; Fr 07:00-20:00; Sa 07:00-15:00",
+                "phone": "+34 936 53 34 19",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96885410000,
+                            41.44890970000
+                        ],
+                        [
+                            1.96885980000,
+                            41.44890570000
+                        ],
+                        [
+                            1.96889520000,
+                            41.44888070000
+                        ],
+                        [
+                            1.96892350000,
+                            41.44890320000
+                        ],
+                        [
+                            1.96888220000,
+                            41.44893220000
+                        ],
+                        [
+                            1.96885410000,
+                            41.44890970000
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
                 "addr:housenumber": "16",
                 "addr:postcode": "08740",
                 "addr:street": "Carrer de Catalunya",
@@ -4674,6 +4584,58 @@
                 "coordinates": [
                     1.97749100000,
                     41.44661910000
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "addr:city": "Sant Andreu de la Barca",
+                "addr:housenumber": "4",
+                "addr:postcode": "08740",
+                "addr:street": "Avinguda Constitució",
+                "addr:unit": "31-34",
+                "email": "carnsvega@hotmail.com",
+                "indoor": "shop",
+                "indoor:level": "0",
+                "level": "0",
+                "lgbtq": "welcome",
+                "lgbtq:signed": "yes",
+                "lgbtq:signed:outside": "local_government_lgbtq_friendly_initative",
+                "name": "Vega by Jeni",
+                "opening_hours": "Mo-Sa 08:00-14:00; Tu 08:00-14:00,17:00-20:00; Fr 08:00-20:00",
+                "phone": "+34 93 653 31 05",
+                "shop": "butcher"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            1.96893520000,
+                            41.44885200000
+                        ],
+                        [
+                            1.96897720000,
+                            41.44882290000
+                        ],
+                        [
+                            1.96903230000,
+                            41.44886760000
+                        ],
+                        [
+                            1.96901160000,
+                            41.44888190000
+                        ],
+                        [
+                            1.96899030000,
+                            41.44889670000
+                        ],
+                        [
+                            1.96893520000,
+                            41.44885200000
+                        ]
+                    ]
                 ]
             }
         },
