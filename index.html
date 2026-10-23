@@ -99,15 +99,18 @@
             bugaderia: { label: "Bugaderia", icon: "fa-soap", emoji: "🧺", color: "#0284c7" },
             cafeteria: { label: "Cafeteria", icon: "fa-mug-saucer", emoji: "☕", color: "#d97706" },
             carnisseria: { label: "Carnisseria", icon: "fa-drumstick-bite", emoji: "🥩", color: "#dc2626" },
+            centre_auditiu: { label: "Centre auditiu", icon: "fa-ear-listen", emoji: "🦻", color: "#0284c7" },
             clinica: { label: "Clínica", icon: "fa-briefcase-medical", emoji: "🏥", color: "#0284c7" },
             congelats: { label: "Congelats", icon: "fa-snowflake", emoji: "🧊", color: "#38bdf8" },
             decoracio: { label: "Decoració", icon: "fa-couch", emoji: "🛋️", color: "#d97706" },
+            delicatessen: { label: "Delicatessen", icon: "fa-cheese", emoji: "🧀", color: "#ca8a04" },
             educacio: { label: "Educació", icon: "fa-graduation-cap", emoji: "🎓", color: "#4f46e5" },
             escola_art: { label: "Escola d'art", icon: "fa-palette", emoji: "🖌️", color: "#9333ea" },
             idiomes: { label: "Escola d'idiomes", icon: "fa-language", emoji: "🗣️", color: "#2563eb" },
             dansa: { label: "Escola de dansa", icon: "fa-child-reaching", emoji: "💃", color: "#db2777" },
             farmacia: { label: "Farmàcia", icon: "fa-prescription-bottle-medical", emoji: "💊", color: "#16a34a" },
             ferreteria: { label: "Ferreteria", icon: "fa-wrench", emoji: "🔧", color: "#ea580c" },
+            fisioterapia: { label: "Fisioteràpia", icon: "fa-user-doctor", emoji: "🩺", color: "#0d9488" },
             fleca: { label: "Fleca", icon: "fa-bread-slice", emoji: "🥐", color: "#b45309" },
             floristeria: { label: "Floristeria", icon: "fa-wheat-awn", emoji: "💐", color: "#059669" },
             fotografia: { label: "Fotografia", icon: "fa-camera", emoji: "📸", color: "#9333ea" },
@@ -120,6 +123,7 @@
             immobiliaria: { label: "Immobiliària", icon: "fa-house-chimney", emoji: "🏠", color: "#4f46e5" },
             joieria: { label: "Joieria", icon: "fa-gem", emoji: "💎", color: "#e11d48" },
             llaminadures: { label: "Llaminadures", icon: "fa-candy-cane", emoji: "🍬", color: "#f43f5e" },
+            medicina_alternativa: { label: "Medicina alternativa", icon: "fa-spa", emoji: "🧘", color: "#059669" },
             menjar_preparat: { label: "Menjar preparat", icon: "fa-box-tissue", emoji: "🍱", color: "#ca8a04" },
             optica: { label: "Òptica", icon: "fa-glasses", emoji: "👓", color: "#0d9488" },
             osteopata: { label: "Osteòpata", icon: "fa-bone", emoji: "🦴", color: "#6366f1" },
@@ -225,7 +229,20 @@
             const craft = props.craft || '';
             const healthcare = props.healthcare || '';
             const tourism = props.tourism || '';
+            const training = props.training || '';
 
+            if (['hearing_aids'].includes(shop) || ['hearing_aids'].includes(healthcare) || amenity === 'hearing_aids') {
+                return { key: 'centre_auditiu', ...CATEGORIES.centre_auditiu };
+            }
+            if (['physiotherapist', 'physiotherapy'].includes(healthcare) || amenity === 'physiotherapist' || shop === 'physiotherapy') {
+                return { key: 'fisioterapia', ...CATEGORIES.fisioterapia };
+            }
+            if (['alternative_medicine', 'alternative'].includes(shop) || ['alternative'].includes(healthcare) || amenity === 'alternative_medicine') {
+                return { key: 'medicina_alternativa', ...CATEGORIES.medicina_alternativa };
+            }
+            if (['delicatessen', 'gourmet', 'cheese'].includes(shop)) {
+                return { key: 'delicatessen', ...CATEGORIES.delicatessen };
+            }
             if (tourism === 'hotel' || amenity === 'hotel' || ['guest_house', 'motel', 'hostel'].includes(tourism)) {
                 return { key: 'hotel', ...CATEGORIES.hotel };
             }
@@ -245,9 +262,9 @@
             if (['clinic', 'hospital', 'doctors', 'dentist'].includes(amenity)) return { key: 'clinica', ...CATEGORIES.clinica };
             if (['interior_decoration', 'furniture', 'houseware'].includes(shop)) return { key: 'decoracio', ...CATEGORIES.decoracio };
             if (['school', 'kindergarten', 'college', 'university'].includes(amenity)) return { key: 'educacio', ...CATEGORIES.educacio };
-            if (amenity === 'art_school' || shop === 'art') return { key: 'escola_art', ...CATEGORIES.escola_art };
+            if (amenity === 'art_school' || shop === 'art' || training === 'art') return { key: 'escola_art', ...CATEGORIES.escola_art };
             if (amenity === 'language_school') return { key: 'idiomes', ...CATEGORIES.idiomes };
-            if (amenity === 'dance_school' || shop === 'dance') return { key: 'dansa', ...CATEGORIES.dansa };
+            if (amenity === 'dance_school' || shop === 'dance' || amenity === 'dancing_school' || shop === 'dancing_school') return { key: 'dansa', ...CATEGORIES.dansa };
             if (amenity === 'pharmacy') return { key: 'farmacia', ...CATEGORIES.farmacia };
             if (['hardware', 'doityourself'].includes(shop)) return { key: 'ferreteria', ...CATEGORIES.ferreteria };
             if (['bakery', 'pastry'].includes(shop)) return { key: 'fleca', ...CATEGORIES.fleca };
@@ -257,11 +274,11 @@
             if (craft === 'carpenter' || shop === 'carpenter') return { key: 'fusteria', ...CATEGORIES.fusteria };
             if (['accountant', 'tax_advisor', 'lawyer', 'administrative'].includes(office)) return { key: 'gestoria', ...CATEGORIES.gestoria };
             if (['pet', 'pet_grooming'].includes(shop) || amenity === 'veterinary') return { key: 'gossos', ...CATEGORIES.gossos };
-            if (['herbalist', 'alternative_medicine'].includes(shop)) return { key: 'herboristeria', ...CATEGORIES.herboristeria };
+            if (['herbalist'].includes(shop)) return { key: 'herboristeria', ...CATEGORIES.herboristeria };
             if (office === 'estate_agent' || shop === 'estate_agent') return { key: 'immobiliaria', ...CATEGORIES.immobiliaria };
             if (shop === 'jewelry') return { key: 'joieria', ...CATEGORIES.joieria };
             if (shop === 'confectionery') return { key: 'llaminadures', ...CATEGORIES.llaminadures };
-            if (['delicatessen', 'caterer'].includes(shop)) return { key: 'menjar_preparat', ...CATEGORIES.menjar_preparat };
+            if (['caterer'].includes(shop)) return { key: 'menjar_preparat', ...CATEGORIES.menjar_preparat };
             if (shop === 'optician') return { key: 'optica', ...CATEGORIES.optica };
             if (['stationery', 'books'].includes(shop)) return { key: 'papereria', ...CATEGORIES.papereria };
             if (['fishmonger', 'seafood'].includes(shop) || amenity === 'seafood') return { key: 'peixateria', ...CATEGORIES.peixateria };
